@@ -1,0 +1,496 @@
+'use client'
+import Link from 'next/link'
+import { useState, useEffect, useRef } from 'react'
+
+export default function Hero() {
+  const [mounted, setMounted] = useState(false)
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    let animationId
+    let particles = []
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    // Create particles
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.1,
+      })
+    }
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Move particles
+      particles.forEach(p => {
+        p.x += p.vx
+        p.y += p.vy
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+
+        // Draw particle dot
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(90, 178, 64, ${p.opacity})`
+        ctx.fill()
+      })
+
+      // Draw connecting lines between nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 130) {
+            ctx.beginPath()
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.strokeStyle = `rgba(90, 178, 64, ${0.12 * (1 - dist / 130)})`
+            ctx.lineWidth = 0.8
+            ctx.stroke()
+          }
+        }
+      }
+
+      animationId = requestAnimationFrame(draw)
+    }
+
+    draw()
+
+    return () => {
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [mounted])
+
+  const courses = [
+    { icon: 'PY', title: 'Full Stack Python', duration: '4-5 Months', color: '#3B82F6', bg: 'rgba(59,130,246,0.15)' },
+    { icon: 'AWS', title: 'Multi-Cloud DevOps', duration: '3-4 Months', color: '#F97316', bg: 'rgba(249,115,22,0.15)' },
+    { icon: 'AI', title: 'Gen AI & Agentic AI', duration: '3 Months', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
+    { icon: 'DA', title: 'Data Analysis', duration: '3 Months', color: '#14B8A6', bg: 'rgba(20,184,166,0.15)' },
+    { icon: 'DS', title: 'Data Science', duration: '4 Months', color: '#5AB240', bg: 'rgba(90,178,64,0.15)' },
+    { icon: 'MC', title: 'Medical Coding', duration: '2-3 Months', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
+    { icon: 'BIM', title: 'BIM', duration: '3 Months', color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
+  ]
+
+  return (
+    <>
+      <section style={{
+        background: '#1C2213',
+        minHeight: '92vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+
+        {/* Animated Canvas Background */}
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Grid pattern overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(90,178,64,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(90,178,64,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+
+        {/* Green glow top right */}
+        <div style={{
+          position: 'absolute',
+          top: '-200px',
+          right: '-200px',
+          width: '600px',
+          height: '600px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(90,178,64,0.1) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+
+        {/* Green glow bottom left */}
+        <div style={{
+          position: 'absolute',
+          bottom: '-200px',
+          left: '-200px',
+          width: '500px',
+          height: '500px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(90,178,64,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+
+        {/* Animated floating rings */}
+        <div className="ring ring1" />
+        <div className="ring ring2" />
+        <div className="ring ring3" />
+
+        {/* Main Content */}
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          width: '100%',
+          padding: '80px 40px',
+          position: 'relative',
+          zIndex: 1,
+        }}>
+
+          {/* Top Badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(90,178,64,0.12)',
+            border: '1px solid rgba(90,178,64,0.35)',
+            color: '#5AB240',
+            padding: '8px 20px',
+            borderRadius: '100px',
+            fontSize: '12px',
+            fontWeight: '700',
+            letterSpacing: '1.5px',
+            marginBottom: '32px',
+            textTransform: 'uppercase',
+          }}>
+            <span style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              background: '#5AB240',
+              display: 'inline-block',
+              animation: mounted ? 'pulse 2s infinite' : 'none',
+            }} />
+            India&apos;s Trusted Training Institute
+          </div>
+
+          {/* Two column layout */}
+          <div className="hero-grid">
+
+            {/* Left — Text */}
+            <div className="hero-left">
+              <h1 style={{
+                fontFamily: 'var(--font-playfair)',
+                fontSize: 'clamp(38px, 5.5vw, 68px)',
+                color: '#ffffff',
+                lineHeight: '1.1',
+                fontWeight: '700',
+                marginBottom: '24px',
+                letterSpacing: '-0.5px',
+              }}>
+                You Need to{' '}
+                <span style={{ color: '#5AB240' }}>Upskill</span>
+                <br />Today to Build
+                <br />Your{' '}
+                <span style={{ color: '#5AB240', fontStyle: 'italic' }}>Tomorrow</span>
+              </h1>
+
+              <p style={{
+                color: 'rgba(255,255,255,0.65)',
+                fontSize: '17px',
+                lineHeight: '1.8',
+                marginBottom: '40px',
+                maxWidth: '480px',
+              }}>
+                Industry-ready courses in Tech & Healthcare.
+                Live classes, real projects, and placement
+                support — trusted by students across India.
+              </p>
+
+              {/* CTA Row */}
+              <div style={{
+                display: 'flex',
+                gap: '14px',
+                flexWrap: 'wrap',
+                marginBottom: '56px',
+              }}>
+                <Link href="/courses" style={{
+                  background: '#5AB240',
+                  color: '#fff',
+                  padding: '15px 32px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '700',
+                  fontSize: '15px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  letterSpacing: '0.3px',
+                }}>
+                  Explore Courses
+                  <span style={{ fontSize: '18px' }}>→</span>
+                </Link>
+                <a href="https://wa.me/919963384555" target="_blank" style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  color: '#fff',
+                  padding: '15px 32px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '15px',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}>
+                  💬 Talk to Us
+                </a>
+              </div>
+
+              {/* Stats Row */}
+              <div style={{
+                display: 'flex',
+                gap: '0',
+                borderTop: '1px solid rgba(255,255,255,0.08)',
+                paddingTop: '32px',
+              }}>
+                {[
+                  { number: '500+', label: 'Students Trained' },
+                  { number: '7+', label: 'Courses Offered' },
+                  { number: '85%', label: 'Placement Rate' },
+                ].map((stat, i) => (
+                  <div key={stat.label} style={{
+                    flex: 1,
+                    paddingRight: '24px',
+                    borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                    paddingLeft: i > 0 ? '24px' : '0',
+                  }}>
+                    <div style={{
+                      fontSize: 'clamp(24px, 3vw, 36px)',
+                      fontWeight: '800',
+                      color: '#5AB240',
+                      fontFamily: 'var(--font-playfair)',
+                      lineHeight: 1,
+                      marginBottom: '4px',
+                    }}>
+                      {stat.number}
+                    </div>
+                    <div style={{
+                      color: 'rgba(255,255,255,0.5)',
+                      fontSize: '12px',
+                      letterSpacing: '0.5px',
+                    }}>
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Course Cards Panel */}
+            <div className="hero-right">
+              <div style={{
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '20px',
+                padding: '24px',
+                backdropFilter: 'blur(10px)',
+              }}>
+                <div style={{
+                  fontSize: '11px',
+                  fontWeight: '700',
+                  color: 'rgba(255,255,255,0.4)',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  marginBottom: '16px',
+                }}>
+                  Our Programs
+                </div>
+
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '10px',
+                }}>
+                  {courses.map((course) => (
+                    <Link
+                      key={course.title}
+                      href={`/courses/${course.title.toLowerCase().replace(/ /g, '-')}`}
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.07)',
+                        borderRadius: '12px',
+                        padding: '16px 14px',
+                        textDecoration: 'none',
+                        display: 'block',
+                        transition: 'all 0.25s',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.background = course.bg
+                        e.currentTarget.style.borderColor = `${course.color}50`
+                        e.currentTarget.style.transform = 'translateY(-2px)'
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
+                        e.currentTarget.style.transform = 'translateY(0)'
+                      }}
+                    >
+                      <div style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: course.bg,
+                        border: `1px solid ${course.color}30`,
+                        borderRadius: '8px',
+                        width: '38px',
+                        height: '38px',
+                        marginBottom: '10px',
+                        color: course.color,
+                        fontWeight: '800',
+                        fontSize: '10px',
+                        letterSpacing: '0.5px',
+                      }}>
+                        {course.icon}
+                      </div>
+                      <div style={{
+                        color: '#ffffff',
+                        fontWeight: '600',
+                        fontSize: '12px',
+                        marginBottom: '4px',
+                        lineHeight: '1.3',
+                      }}>
+                        {course.title}
+                      </div>
+                      <div style={{
+                        color: course.color,
+                        fontSize: '11px',
+                        fontWeight: '500',
+                      }}>
+                        ⏱ {course.duration}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Bottom CTA */}
+                <a href="https://wa.me/919963384555" target="_blank" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  marginTop: '16px',
+                  padding: '12px',
+                  background: 'rgba(90,178,64,0.12)',
+                  border: '1px solid rgba(90,178,64,0.25)',
+                  borderRadius: '10px',
+                  color: '#5AB240',
+                  textDecoration: 'none',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                }}>
+                  💬 Free Counselling — Talk to an Expert
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+
+        @keyframes ringFloat {
+          0%, 100% { transform: scale(1); opacity: 0.06; }
+          50% { transform: scale(1.08); opacity: 0.12; }
+        }
+
+        @keyframes ringFloat2 {
+          0%, 100% { transform: scale(1); opacity: 0.04; }
+          50% { transform: scale(1.05); opacity: 0.09; }
+        }
+
+        .ring {
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid #5AB240;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .ring1 {
+          width: 400px;
+          height: 400px;
+          top: -100px;
+          right: 10%;
+          animation: ringFloat 6s ease-in-out infinite;
+        }
+
+        .ring2 {
+          width: 280px;
+          height: 280px;
+          top: 40px;
+          right: calc(10% + 60px);
+          animation: ringFloat2 8s ease-in-out infinite;
+          animation-delay: 1s;
+        }
+
+        .ring3 {
+          width: 180px;
+          height: 180px;
+          bottom: 60px;
+          left: 5%;
+          animation: ringFloat 10s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 60px;
+          align-items: center;
+        }
+
+        @media (max-width: 900px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-grid {
+            gap: 32px;
+          }
+        }
+      `}</style>
+    </>
+  )
+}

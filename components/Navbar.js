@@ -74,6 +74,9 @@ export default function Navbar() {
             )}
           </div>
 
+          <Link href="/blog" style={{ textDecoration: 'none', color: '#1C2213', fontWeight: '500', fontSize: '15px' }}>
+            Blog
+          </Link>
           <Link href="/placements" style={{ textDecoration: 'none', color: '#1C2213', fontWeight: '500', fontSize: '15px' }}>
             Placements
           </Link>
@@ -113,7 +116,9 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-
+          <Link href="/blog" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>
+            Blog
+          </Link>
           <Link href="/placements" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>
             Placements
           </Link>

@@ -65,13 +65,29 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMtyVDqCpW_DfEVxCYOm
 
             {/* Left */}
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.bg, border: `1px solid ${course.color}40`, borderRadius: '14px', width: '64px', height: '64px', color: course.color, fontWeight: '800', fontSize: '16px', marginBottom: '24px' }}>
-                {course.icon}
-              </div>
+ {/* Course Hero Image */}
+<div style={{ position: 'relative', height: '300px', borderRadius: '16px', overflow: 'hidden', marginBottom: '32px' }}>
+  <img
+    src={course.image}
+    alt={course.title}
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+    onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }}
+  />
+  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(28,34,19,0.85) 100%)' }} />
+  <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.color, borderRadius: '10px', width: '48px', height: '48px', color: '#fff', fontWeight: '800', fontSize: '14px' }}>
+      {course.icon}
+    </div>
+    <div>
+      <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '12px', marginBottom: '2px' }}>Course</div>
+      <div style={{ color: '#fff', fontWeight: '700', fontSize: '16px' }}>{course.title}</div>
+    </div>
+  </div>
+</div>
 
-              <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(32px, 5vw, 54px)', color: '#fff', fontWeight: '700', lineHeight: '1.15', marginBottom: '16px' }}>
-                {course.title}
-              </h1>
+<h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(32px, 5vw, 54px)', color: '#fff', fontWeight: '700', lineHeight: '1.15', marginBottom: '16px' }}>
+  {course.title}
+</h1>
 
               <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: '1.8', marginBottom: '32px', maxWidth: '580px' }}>
                 {course.description}

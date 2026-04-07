@@ -98,7 +98,7 @@ export default function CoursesPage() {
               { number: '7', label: 'Courses Available' },
               { number: '500+', label: 'Students Trained' },
               { number: '85%', label: 'Placement Rate' },
-              { number: '2+', label: 'Years of Excellence' },
+              { number: '5+', label: 'Years of Excellence' },
             ].map((stat, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '36px', fontWeight: '800', color: '#5AB240', fontFamily: 'var(--font-playfair)', lineHeight: 1 }}>{stat.number}</div>
@@ -122,21 +122,26 @@ export default function CoursesPage() {
                   e.currentTarget.style.boxShadow = 'none'
                   e.currentTarget.style.borderColor = '#eef0ec'
                 }}>
+              {/* Course Image */}
+              <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }}
+                  onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }}
+                />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5) 100%)' }} />
+              <div style={{ position: 'absolute', bottom: '12px', left: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.color, borderRadius: '8px', width: '36px', height: '36px', color: '#fff', fontWeight: '800', fontSize: '11px' }}>
+                  {course.icon}
+                </div>
+                <span style={{ background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: '11px', fontWeight: '600', padding: '3px 10px', borderRadius: '100px' }}>
+                  ⏱ {course.duration}
+                </span>
+              </div>
+            </div>
 
-                {/* Top color bar */}
-                <div style={{ height: '5px', background: course.color }} />
-
-                <div style={{ padding: '28px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-
-                  {/* Icon + Duration */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.bg, border: `1px solid ${course.color}30`, borderRadius: '12px', width: '54px', height: '54px', color: course.color, fontWeight: '800', fontSize: '13px', letterSpacing: '0.5px' }}>
-                      {course.icon}
-                    </div>
-                    <div style={{ background: '#f5f5f5', color: '#666', fontSize: '12px', fontWeight: '600', padding: '4px 12px', borderRadius: '100px' }}>
-                      ⏱ {course.duration}
-                    </div>
-                  </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
 
                   {/* Title & Subtitle */}
                   <h3 style={{ fontSize: '21px', fontWeight: '700', color: '#1C2213', marginBottom: '6px', fontFamily: 'var(--font-playfair)' }}>

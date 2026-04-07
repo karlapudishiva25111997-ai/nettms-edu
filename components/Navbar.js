@@ -43,28 +43,20 @@ export default function Navbar() {
           </Link>
 
           {/* Courses Dropdown */}
-          <div
-            style={{ position: 'relative' }}
+          <div style={{ position: 'relative' }}
             onMouseEnter={() => setCoursesOpen(true)}
-            onMouseLeave={() => setCoursesOpen(false)}
-          >
-            <button
-              onClick={() => setCoursesOpen(!coursesOpen)}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: '500', fontSize: '15px', color: '#1C2213', display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 0' }}>
+            onMouseLeave={() => setCoursesOpen(false)}>
+            <button onClick={() => setCoursesOpen(!coursesOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: '500', fontSize: '15px', color: '#1C2213', display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 0' }}>
               Courses ▾
             </button>
 
-            {/* Invisible bridge to prevent gap */}
+            {/* Invisible bridge */}
             <div style={{ position: 'absolute', top: '100%', left: 0, width: '100%', height: '16px', background: 'transparent' }} />
 
             {coursesOpen && (
               <div style={{ position: 'absolute', top: 'calc(100% + 8px)', left: '0', background: '#fff', boxShadow: '0 8px 32px rgba(0,0,0,0.12)', borderRadius: '8px', padding: '8px 0', minWidth: '260px', zIndex: 999, border: '1px solid #eee' }}>
                 {courses.map((course) => (
-                  <Link
-                    key={course.slug}
-                    href={`/courses/${course.slug}`}
-                    onClick={() => setCoursesOpen(false)}
-                    style={{ display: 'block', padding: '10px 20px', color: '#1C2213', textDecoration: 'none', fontSize: '14px', fontWeight: '500', borderBottom: '1px solid #f5f5f5', transition: 'all 0.2s' }}
+                  <Link key={course.slug} href={`/courses/${course.slug}`} onClick={() => setCoursesOpen(false)} style={{ display: 'block', padding: '10px 20px', color: '#1C2213', textDecoration: 'none', fontSize: '14px', fontWeight: '500', borderBottom: '1px solid #f5f5f5', transition: 'all 0.2s' }}
                     onMouseEnter={e => { e.currentTarget.style.background = '#EAF6E3'; e.currentTarget.style.color = '#5AB240'; e.currentTarget.style.paddingLeft = '26px' }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1C2213'; e.currentTarget.style.paddingLeft = '20px' }}>
                     {course.name}
@@ -93,17 +85,25 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="hamburger"
-          style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', fontSize: '24px', color: '#1C2213' }}>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger" style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', fontSize: '24px', color: '#1C2213' }}>
           {menuOpen ? '✕' : '☰'}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — Fixed position so it shows wherever user is on page */}
       {menuOpen && (
-        <div style={{ background: '#fff', padding: '20px 24px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', zIndex: 998, position: 'relative' }}>
+        <div style={{
+          background: '#fff',
+          padding: '20px 24px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          zIndex: 998,
+          position: 'fixed',
+          top: '90px',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflowY: 'auto',
+        }}>
           <Link href="/" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>
             Home
           </Link>
@@ -116,6 +116,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+
           <Link href="/blog" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>
             Blog
           </Link>

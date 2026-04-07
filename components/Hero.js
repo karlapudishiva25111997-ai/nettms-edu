@@ -4,10 +4,22 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
+  const [currentImage, setCurrentImage] = useState(0)
   const canvasRef = useRef(null)
+
+  const heroImages = [
+    'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80',
+    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80',
+    'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80',
+    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80',
+  ]
 
   useEffect(() => {
     setMounted(true)
+    const interval = setInterval(() => {
+      setCurrentImage(prev => (prev + 1) % heroImages.length)
+    }, 4000)
+    return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
@@ -24,7 +36,6 @@ export default function Hero() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Create particles
     for (let i = 0; i < 60; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -38,22 +49,16 @@ export default function Hero() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Move particles
       particles.forEach(p => {
         p.x += p.vx
         p.y += p.vy
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1
-
-        // Draw particle dot
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(90, 178, 64, ${p.opacity})`
         ctx.fill()
       })
-
-      // Draw connecting lines between nearby particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -69,12 +74,10 @@ export default function Hero() {
           }
         }
       }
-
       animationId = requestAnimationFrame(draw)
     }
 
     draw()
-
     return () => {
       cancelAnimationFrame(animationId)
       window.removeEventListener('resize', resize)
@@ -93,67 +96,19 @@ export default function Hero() {
 
   return (
     <>
-      <section style={{
-        background: '#1C2213',
-        minHeight: '92vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
+      <section style={{ background: '#1C2213', minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
 
         {/* Animated Canvas Background */}
-        <canvas
-          ref={canvasRef}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            pointerEvents: 'none',
-            zIndex: 0,
-          }}
-        />
+        <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Grid pattern overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `
-            linear-gradient(rgba(90,178,64,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(90,178,64,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }} />
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(90,178,64,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(90,178,64,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px', pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Green glow top right */}
-        <div style={{
-          position: 'absolute',
-          top: '-200px',
-          right: '-200px',
-          width: '600px',
-          height: '600px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(90,178,64,0.1) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }} />
+        <div style={{ position: 'absolute', top: '-200px', right: '-200px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(90,178,64,0.1) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Green glow bottom left */}
-        <div style={{
-          position: 'absolute',
-          bottom: '-200px',
-          left: '-200px',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(90,178,64,0.07) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }} />
+        <div style={{ position: 'absolute', bottom: '-200px', left: '-200px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(90,178,64,0.07) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
         {/* Animated floating rings */}
         <div className="ring ring1" />
@@ -161,39 +116,11 @@ export default function Hero() {
         <div className="ring ring3" />
 
         {/* Main Content */}
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          width: '100%',
-          padding: '80px 40px',
-          position: 'relative',
-          zIndex: 1,
-        }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '80px 40px', position: 'relative', zIndex: 1 }}>
 
           {/* Top Badge */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(90,178,64,0.12)',
-            border: '1px solid rgba(90,178,64,0.35)',
-            color: '#5AB240',
-            padding: '8px 20px',
-            borderRadius: '100px',
-            fontSize: '12px',
-            fontWeight: '700',
-            letterSpacing: '1.5px',
-            marginBottom: '32px',
-            textTransform: 'uppercase',
-          }}>
-            <span style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              background: '#5AB240',
-              display: 'inline-block',
-              animation: mounted ? 'pulse 2s infinite' : 'none',
-            }} />
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(90,178,64,0.12)', border: '1px solid rgba(90,178,64,0.35)', color: '#5AB240', padding: '8px 20px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', marginBottom: '32px', textTransform: 'uppercase' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#5AB240', display: 'inline-block', animation: mounted ? 'pulse 2s infinite' : 'none' }} />
             India&apos;s Trusted Training Institute
           </div>
 
@@ -202,15 +129,7 @@ export default function Hero() {
 
             {/* Left — Text */}
             <div className="hero-left">
-              <h1 style={{
-                fontFamily: 'var(--font-playfair)',
-                fontSize: 'clamp(38px, 5.5vw, 68px)',
-                color: '#ffffff',
-                lineHeight: '1.1',
-                fontWeight: '700',
-                marginBottom: '24px',
-                letterSpacing: '-0.5px',
-              }}>
+              <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(38px, 5.5vw, 68px)', color: '#ffffff', lineHeight: '1.1', fontWeight: '700', marginBottom: '24px', letterSpacing: '-0.5px' }}>
                 You Need to{' '}
                 <span style={{ color: '#5AB240' }}>Upskill</span>
                 <br />Today to Build
@@ -218,91 +137,52 @@ export default function Hero() {
                 <span style={{ color: '#5AB240', fontStyle: 'italic' }}>Tomorrow</span>
               </h1>
 
-              <p style={{
-                color: 'rgba(255,255,255,0.65)',
-                fontSize: '17px',
-                lineHeight: '1.8',
-                marginBottom: '40px',
-                maxWidth: '480px',
-              }}>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: '1.8', marginBottom: '40px', maxWidth: '480px' }}>
                 Industry-ready courses in Tech & Healthcare.
                 Live classes, real projects, and placement
                 support — trusted by students across India.
               </p>
 
               {/* CTA Row */}
-              <div style={{
-                display: 'flex',
-                gap: '14px',
-                flexWrap: 'wrap',
-                marginBottom: '56px',
-              }}>
-                <Link href="/courses" style={{
-                  background: '#5AB240',
-                  color: '#fff',
-                  padding: '15px 32px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: '700',
-                  fontSize: '15px',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  letterSpacing: '0.3px',
-                }}>
-                  Explore Courses
-                  <span style={{ fontSize: '18px' }}>→</span>
+              <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '40px' }}>
+                <Link href="/courses" style={{ background: '#5AB240', color: '#fff', padding: '15px 32px', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                  Explore Courses <span style={{ fontSize: '18px' }}>→</span>
                 </Link>
-                <a href="https://wa.me/919963384555" target="_blank" style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  color: '#fff',
-                  padding: '15px 32px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '15px',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                }}>
+                <a href="https://wa.me/919963384555" target="_blank" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', padding: '15px 32px', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '15px', border: '1px solid rgba(255,255,255,0.15)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                   💬 Talk to Us
                 </a>
               </div>
 
+              {/* Image Slideshow */}
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '200px', marginBottom: '40px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                {heroImages.map((img, i) => (
+                  <img key={i} src={img} alt="Nettms Education" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: i === currentImage ? 1 : 0, transition: 'opacity 1s ease-in-out' }} />
+                ))}
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(28,34,19,0.6) 0%, transparent 50%)' }} />
+                <div style={{ position: 'absolute', bottom: '12px', left: '16px' }}>
+                  <div style={{ color: '#5AB240', fontSize: '12px', fontWeight: '700', marginBottom: '4px' }}>📍 Ameerpet, Hyderabad</div>
+                  <div style={{ color: '#fff', fontSize: '14px', fontWeight: '600' }}>Live Classes + Online Batches</div>
+                </div>
+                {/* Dots */}
+                <div style={{ position: 'absolute', bottom: '12px', right: '16px', display: 'flex', gap: '6px' }}>
+                  {heroImages.map((_, i) => (
+                    <div key={i} onClick={() => setCurrentImage(i)} style={{ width: i === currentImage ? '20px' : '6px', height: '6px', borderRadius: '3px', background: i === currentImage ? '#5AB240' : 'rgba(255,255,255,0.4)', cursor: 'pointer', transition: 'all 0.3s' }} />
+                  ))}
+                </div>
+              </div>
+
               {/* Stats Row */}
-              <div style={{
-                display: 'flex',
-                gap: '0',
-                borderTop: '1px solid rgba(255,255,255,0.08)',
-                paddingTop: '32px',
-              }}>
+              <div style={{ display: 'flex', gap: '0', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '32px' }}>
                 {[
                   { number: '500+', label: 'Students Trained' },
                   { number: '7+', label: 'Courses Offered' },
                   { number: '85%', label: 'Placement Rate' },
                 ].map((stat, i) => (
-                  <div key={stat.label} style={{
-                    flex: 1,
-                    paddingRight: '24px',
-                    borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                    paddingLeft: i > 0 ? '24px' : '0',
-                  }}>
-                    <div style={{
-                      fontSize: 'clamp(24px, 3vw, 36px)',
-                      fontWeight: '800',
-                      color: '#5AB240',
-                      fontFamily: 'var(--font-playfair)',
-                      lineHeight: 1,
-                      marginBottom: '4px',
-                    }}>
+                  <div key={stat.label} style={{ flex: 1, paddingRight: '24px', borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none', paddingLeft: i > 0 ? '24px' : '0' }}>
+                    <div style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '800', color: '#5AB240', fontFamily: 'var(--font-playfair)', lineHeight: 1, marginBottom: '4px' }}>
                       {stat.number}
                     </div>
-                    <div style={{
-                      color: 'rgba(255,255,255,0.5)',
-                      fontSize: '12px',
-                      letterSpacing: '0.5px',
-                    }}>
+                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', letterSpacing: '0.5px' }}>
                       {stat.label}
                     </div>
                   </div>
@@ -312,84 +192,23 @@ export default function Hero() {
 
             {/* Right — Course Cards Panel */}
             <div className="hero-right">
-              <div style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '20px',
-                padding: '24px',
-                backdropFilter: 'blur(10px)',
-              }}>
-                <div style={{
-                  fontSize: '11px',
-                  fontWeight: '700',
-                  color: 'rgba(255,255,255,0.4)',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  marginBottom: '16px',
-                }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '24px', backdropFilter: 'blur(10px)' }}>
+                <div style={{ fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.4)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
                   Our Programs
                 </div>
 
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '10px',
-                }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   {courses.map((course) => (
-                    <Link
-                      key={course.title}
-                      href={`/courses/${course.title.toLowerCase().replace(/ /g, '-')}`}
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.07)',
-                        borderRadius: '12px',
-                        padding: '16px 14px',
-                        textDecoration: 'none',
-                        display: 'block',
-                        transition: 'all 0.25s',
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = course.bg
-                        e.currentTarget.style.borderColor = `${course.color}50`
-                        e.currentTarget.style.transform = 'translateY(-2px)'
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
-                        e.currentTarget.style.transform = 'translateY(0)'
-                      }}
-                    >
-                      <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: course.bg,
-                        border: `1px solid ${course.color}30`,
-                        borderRadius: '8px',
-                        width: '38px',
-                        height: '38px',
-                        marginBottom: '10px',
-                        color: course.color,
-                        fontWeight: '800',
-                        fontSize: '10px',
-                        letterSpacing: '0.5px',
-                      }}>
+                    <Link key={course.title} href={`/courses/${course.title.toLowerCase().replace(/ /g, '-')}`} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '16px 14px', textDecoration: 'none', display: 'block', transition: 'all 0.25s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = course.bg; e.currentTarget.style.borderColor = `${course.color}50`; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.bg, border: `1px solid ${course.color}30`, borderRadius: '8px', width: '38px', height: '38px', marginBottom: '10px', color: course.color, fontWeight: '800', fontSize: '10px', letterSpacing: '0.5px' }}>
                         {course.icon}
                       </div>
-                      <div style={{
-                        color: '#ffffff',
-                        fontWeight: '600',
-                        fontSize: '12px',
-                        marginBottom: '4px',
-                        lineHeight: '1.3',
-                      }}>
+                      <div style={{ color: '#ffffff', fontWeight: '600', fontSize: '12px', marginBottom: '4px', lineHeight: '1.3' }}>
                         {course.title}
                       </div>
-                      <div style={{
-                        color: course.color,
-                        fontSize: '11px',
-                        fontWeight: '500',
-                      }}>
+                      <div style={{ color: course.color, fontSize: '11px', fontWeight: '500' }}>
                         ⏱ {course.duration}
                       </div>
                     </Link>
@@ -397,21 +216,7 @@ export default function Hero() {
                 </div>
 
                 {/* Bottom CTA */}
-                <a href="https://wa.me/919963384555" target="_blank" style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  marginTop: '16px',
-                  padding: '12px',
-                  background: 'rgba(90,178,64,0.12)',
-                  border: '1px solid rgba(90,178,64,0.25)',
-                  borderRadius: '10px',
-                  color: '#5AB240',
-                  textDecoration: 'none',
-                  fontSize: '13px',
-                  fontWeight: '600',
-                }}>
+                <a href="https://wa.me/919963384555" target="_blank" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', padding: '12px', background: 'rgba(90,178,64,0.12)', border: '1px solid rgba(90,178,64,0.25)', borderRadius: '10px', color: '#5AB240', textDecoration: 'none', fontSize: '13px', fontWeight: '600' }}>
                   💬 Free Counselling — Talk to an Expert
                 </a>
               </div>
@@ -426,17 +231,14 @@ export default function Hero() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.3; }
         }
-
         @keyframes ringFloat {
           0%, 100% { transform: scale(1); opacity: 0.06; }
           50% { transform: scale(1.08); opacity: 0.12; }
         }
-
         @keyframes ringFloat2 {
           0%, 100% { transform: scale(1); opacity: 0.04; }
           50% { transform: scale(1.05); opacity: 0.09; }
         }
-
         .ring {
           position: absolute;
           border-radius: 50%;
@@ -444,7 +246,6 @@ export default function Hero() {
           pointer-events: none;
           z-index: 0;
         }
-
         .ring1 {
           width: 400px;
           height: 400px;
@@ -452,7 +253,6 @@ export default function Hero() {
           right: 10%;
           animation: ringFloat 6s ease-in-out infinite;
         }
-
         .ring2 {
           width: 280px;
           height: 280px;
@@ -461,7 +261,6 @@ export default function Hero() {
           animation: ringFloat2 8s ease-in-out infinite;
           animation-delay: 1s;
         }
-
         .ring3 {
           width: 180px;
           height: 180px;
@@ -470,21 +269,18 @@ export default function Hero() {
           animation: ringFloat 10s ease-in-out infinite;
           animation-delay: 2s;
         }
-
         .hero-grid {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 60px;
           align-items: center;
         }
-
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr;
             gap: 40px;
           }
         }
-
         @media (max-width: 480px) {
           .hero-grid {
             gap: 32px;

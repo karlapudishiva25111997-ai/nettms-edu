@@ -6,8 +6,9 @@ const reasons = [
     desc: 'Every course is built around real job requirements. We teach what companies actually need — not outdated textbook content.',
     color: '#5AB240',
     bg: 'rgba(90,178,64,0.12)',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
       </svg>
@@ -18,8 +19,9 @@ const reasons = [
     desc: 'Learn directly from industry professionals in live sessions. Ask questions, get feedback and grow in real time.',
     color: '#3B82F6',
     bg: 'rgba(59,130,246,0.12)',
+    image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="23 7 16 12 23 17 23 7"/>
         <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
       </svg>
@@ -30,8 +32,9 @@ const reasons = [
     desc: 'Every student works on real-world projects. Your portfolio will have actual work to show employers.',
     color: '#F97316',
     bg: 'rgba(249,115,22,0.12)',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"/>
         <polyline points="8 6 2 12 8 18"/>
       </svg>
@@ -42,8 +45,9 @@ const reasons = [
     desc: 'Resume building, mock interviews, LinkedIn profile reviews and direct referrals to our hiring partners.',
     color: '#A855F7',
     bg: 'rgba(168,85,247,0.12)',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
         <circle cx="9" cy="7" r="4"/>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -56,8 +60,9 @@ const reasons = [
     desc: 'Located in Ameerpet, the IT hub of Hyderabad. Online batches available for students across India.',
     color: '#EC4899',
     bg: 'rgba(236,72,153,0.12)',
+    image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="2" y1="12" x2="22" y2="12"/>
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -69,8 +74,9 @@ const reasons = [
     desc: 'Easy EMI options available. We believe financial constraints should never stop you from upskilling.',
     color: '#F59E0B',
     bg: 'rgba(245,158,11,0.12)',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80',
     icon: (color) => (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
         <line x1="1" y1="10" x2="23" y2="10"/>
       </svg>
@@ -82,7 +88,7 @@ const stats = [
   { number: '500+', label: 'Students Trained' },
   { number: '7+', label: 'Courses Offered' },
   { number: '85%', label: 'Placement Rate' },
-  { number: '2+', label: 'Years of Excellence' },
+  { number: '5+', label: 'Years of Excellence' },
 ]
 
 export default function WhyNettms() {
@@ -97,6 +103,7 @@ export default function WhyNettms() {
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
+        {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <div style={{ display: 'inline-block', background: 'rgba(90,178,64,0.12)', border: '1px solid rgba(90,178,64,0.35)', color: '#5AB240', padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
             Why Choose Us
@@ -109,34 +116,55 @@ export default function WhyNettms() {
           </p>
         </div>
 
+        {/* Cards Grid */}
         <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
           {reasons.map((reason, i) => (
             <div key={i}
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '32px 28px', transition: 'all 0.3s' }}
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', overflow: 'hidden', transition: 'all 0.3s' }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.07)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.09)'
                 e.currentTarget.style.borderColor = reason.color + '50'
                 e.currentTarget.style.transform = 'translateY(-4px)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
                 e.currentTarget.style.transform = 'translateY(0)'
               }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: reason.bg, border: `1px solid ${reason.color}30`, borderRadius: '14px', width: '58px', height: '58px', marginBottom: '20px' }}>
-                {reason.icon(reason.color)}
+
+              {/* Card Image */}
+              <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
+                <img
+                  src={reason.image}
+                  alt={reason.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }}
+                  onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+                  onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+                  onError={e => { e.target.style.display = 'none' }}
+                />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(28,34,19,0.85) 100%)' }} />
+                <div style={{ position: 'absolute', bottom: '14px', left: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: reason.bg, border: `1px solid ${reason.color}40`, borderRadius: '10px', width: '38px', height: '38px' }}>
+                    {reason.icon(reason.color)}
+                  </div>
+                </div>
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#ffffff', marginBottom: '12px', lineHeight: '1.3' }}>
-                {reason.title}
-              </h3>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', lineHeight: '1.8' }}>
-                {reason.desc}
-              </p>
-              <div style={{ marginTop: '24px', height: '2px', width: '40px', background: reason.color, borderRadius: '2px' }} />
+
+              {/* Card Body */}
+              <div style={{ padding: '20px 24px 28px' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#ffffff', marginBottom: '10px', lineHeight: '1.3' }}>
+                  {reason.title}
+                </h3>
+                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', lineHeight: '1.8', marginBottom: '16px' }}>
+                  {reason.desc}
+                </p>
+                <div style={{ height: '2px', width: '40px', background: reason.color, borderRadius: '2px' }} />
+              </div>
             </div>
           ))}
         </div>
 
+        {/* Bottom Stats Bar */}
         <div className="stats-bar" style={{ marginTop: '80px', background: 'rgba(90,178,64,0.08)', border: '1px solid rgba(90,178,64,0.2)', borderRadius: '16px', padding: '40px', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
           {stats.map((stat, i) => (
             <div key={i} style={{ borderRight: i < 3 ? '1px solid rgba(90,178,64,0.2)' : 'none', padding: '0 20px' }}>

@@ -28,8 +28,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <nav style={{ background: '#ffffff', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '90px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', position: 'sticky', top: 0, zIndex: 1000 }}>
-
+<nav style={{ background: '#ffffff', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '90px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', position: 'sticky', top: 0, zIndex: 1000, marginBottom: '0' }}>
         {/* Logo */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           <img src="/logo.jpg" alt="Nettms Education" style={{ height: '80px', width: 'auto', objectFit: 'contain' }} />

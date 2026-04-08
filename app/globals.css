@@ -1,25 +1,53 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ===== GLOBAL MOBILE FIXES ===== */
+@media (max-width: 768px) {
 
-html {
-  scroll-behavior: smooth;
-}
+  /* Fix all sections padding */
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
 
-body {
-  font-family: var(--font-inter), sans-serif;
-  color: #1C2213;
-  background: #ffffff;
-  overflow-x: hidden;
-}
+  /* Fix all buttons */
+  a[style], button[style] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-:root {
-  --green: #5AB240;
-  --dark: #1C2213;
-  --light-green: #EAF6E3;
-  --white: #ffffff;
-  --gray: #F5F5F5;
-  --text-muted: #666666;
+  /* Fix meta chips row */
+  .meta-chips {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Fix hero section */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Fix CTA buttons on mobile */
+  .cta-row {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .cta-row a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Fix top info bar on mobile */
+  .top-info-bar {
+    display: none !important;
+  }
+
+  /* Fix footer grid */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix course content padding */
+  .course-content {
+    padding: 20px 16px !important;
+  }
 }

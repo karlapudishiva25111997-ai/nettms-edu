@@ -5,7 +5,6 @@ const batches = [
   {
     course: 'Data Analysis',
     slug: 'data-analysis',
-    date: 'May 5, 2025',
     seats: 8,
     mode: 'Online + Offline',
     duration: '3 Months',
@@ -13,11 +12,12 @@ const batches = [
     bg: 'rgba(20,184,166,0.1)',
     icon: 'DA',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
   {
     course: 'Data Science',
     slug: 'data-science',
-    date: 'May 10, 2025',
     seats: 5,
     mode: 'Online + Offline',
     duration: '4 Months',
@@ -25,11 +25,12 @@ const batches = [
     bg: 'rgba(90,178,64,0.1)',
     icon: 'DS',
     image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
   {
     course: 'Multi-Cloud DevOps',
     slug: 'devops',
-    date: 'May 12, 2025',
     seats: 10,
     mode: 'Online + Offline',
     duration: '3-4 Months',
@@ -37,11 +38,12 @@ const batches = [
     bg: 'rgba(249,115,22,0.1)',
     icon: 'AWS',
     image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
   {
     course: 'Full Stack Python',
     slug: 'python-fullstack',
-    date: 'May 15, 2025',
     seats: 6,
     mode: 'Online + Offline',
     duration: '4-5 Months',
@@ -49,11 +51,12 @@ const batches = [
     bg: 'rgba(59,130,246,0.1)',
     icon: 'PY',
     image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
   {
     course: 'Gen AI & Agentic AI',
     slug: 'gen-ai',
-    date: 'May 18, 2025',
     seats: 7,
     mode: 'Online + Offline',
     duration: '3 Months',
@@ -61,11 +64,12 @@ const batches = [
     bg: 'rgba(168,85,247,0.1)',
     icon: 'AI',
     image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
   {
     course: 'Medical Coding',
     slug: 'medical-coding',
-    date: 'May 20, 2025',
     seats: 12,
     mode: 'Online + Offline',
     duration: '2-3 Months',
@@ -73,6 +77,8 @@ const batches = [
     bg: 'rgba(236,72,153,0.1)',
     icon: 'MC',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
   },
 ]
 
@@ -92,11 +98,11 @@ export default function UpcomingBatches() {
             Upcoming Batches
           </div>
           <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 46px)', color: '#ffffff', fontWeight: '700', marginBottom: '16px', lineHeight: '1.2' }}>
-            Next Batches Starting{' '}
+            New Batches Starting{' '}
             <span style={{ color: '#5AB240' }}>Soon</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '17px', maxWidth: '500px', margin: '0 auto', lineHeight: '1.7' }}>
-            Limited seats available. Enroll now to secure your spot in the upcoming batch.
+            Limited seats available. WhatsApp us to know the next batch date and secure your spot.
           </p>
         </div>
 
@@ -105,17 +111,12 @@ export default function UpcomingBatches() {
           {batches.map((batch, i) => (
             <div key={i}
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', overflow: 'hidden', transition: 'all 0.3s' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = `0 20px 60px rgba(0,0,0,0.3)`; e.currentTarget.style.borderColor = batch.color + '50' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)'; e.currentTarget.style.borderColor = batch.color + '50' }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }}>
 
               {/* Card Image */}
               <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
-                <img
-                  src={batch.image}
-                  alt={batch.course}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }}
-                  onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }}
-                />
+                <img src={batch.image} alt={batch.course} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }} onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }} />
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 20%, rgba(28,34,19,0.9) 100%)' }} />
 
                 {/* Seats badge */}
@@ -140,19 +141,29 @@ export default function UpcomingBatches() {
               <div style={{ padding: '20px 24px' }}>
 
                 {/* Batch Details */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>📅 Start Date</span>
-                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.date}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                     <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>⏱ Duration</span>
                     <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.duration}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                     <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>🖥️ Mode</span>
                     <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.mode}</span>
                   </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>🕐 Timing</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.timing}</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>📊 Level</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.level}</span>
+                  </div>
+                </div>
+
+                {/* Batch date info */}
+                <div style={{ background: 'rgba(90,178,64,0.1)', border: '1px solid rgba(90,178,64,0.2)', borderRadius: '8px', padding: '10px 14px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ color: '#5AB240', fontSize: '13px' }}>📅</span>
+                  <span style={{ color: '#5AB240', fontSize: '13px', fontWeight: '600' }}>WhatsApp us for next batch date</span>
                 </div>
 
                 {/* CTA Buttons */}

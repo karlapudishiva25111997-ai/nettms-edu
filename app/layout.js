@@ -64,8 +64,52 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-G-Z6Z4Z9XFMR');
+              gtag('config', 'G-Z6Z4Z9XFMR');
             `,
+          }}
+        />
+
+        {/* Schema Markup — for Google, ChatGPT, Gemini */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "Nettms Education",
+              "url": "https://nettmsedu.in",
+              "logo": "https://nettmsedu.in/logo.jpg",
+              "description": "Leading IT & Healthcare training institute in Ameerpet, Hyderabad. Courses in Data Science, DevOps, Full Stack Python, Gen AI, BIM and Medical Coding.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ameerpet",
+                "addressLocality": "Hyderabad",
+                "addressRegion": "Telangana",
+                "postalCode": "500016",
+                "addressCountry": "IN"
+              },
+              "telephone": "+919963384555",
+              "email": "info@nettmsedu.in",
+              "sameAs": [
+                "https://www.google.com/maps?q=Nettms+Education+Ameerpet+Hyderabad",
+                "https://www.justdial.com/Hyderabad/Nettms-Education-Ameerpet/YOUR-LISTING-ID",
+                "https://www.urbanpro.com/hyderabad/nettms-education",
+                "https://www.sulekha.com/nettms-education-hyderabad"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "IT & Healthcare Courses",
+                "itemListElement": [
+                  { "@type": "Course", "name": "Data Science", "url": "https://nettmsedu.in/courses/data-science" },
+                  { "@type": "Course", "name": "Multi-Cloud DevOps", "url": "https://nettmsedu.in/courses/devops" },
+                  { "@type": "Course", "name": "Full Stack Python", "url": "https://nettmsedu.in/courses/python-fullstack" },
+                  { "@type": "Course", "name": "Gen AI & Agentic AI", "url": "https://nettmsedu.in/courses/gen-ai" },
+                  { "@type": "Course", "name": "BIM", "url": "https://nettmsedu.in/courses/bim" },
+                  { "@type": "Course", "name": "Medical Coding", "url": "https://nettmsedu.in/courses/medical-coding" },
+                  { "@type": "Course", "name": "Data Analysis", "url": "https://nettmsedu.in/courses/data-analysis" }
+                ]
+              }
+            })
           }}
         />
       </head>

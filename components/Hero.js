@@ -199,8 +199,7 @@ export default function Hero() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   {courses.map((course) => (
-                    <Link key={course.title} href={`/courses/${course.title.toLowerCase().replace(/ /g, '-')}`} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '16px 14px', textDecoration: 'none', display: 'block', transition: 'all 0.25s' }}
-                      onMouseEnter={e => { e.currentTarget.style.background = course.bg; e.currentTarget.style.borderColor = `${course.color}50`; e.currentTarget.style.transform = 'translateY(-2px)' }}
+<Link key={course.title} href={`/courses/${course.title.toLowerCase().replace(/ /g, '-')}`}                      onMouseEnter={e => { e.currentTarget.style.background = course.bg; e.currentTarget.style.borderColor = `${course.color}50`; e.currentTarget.style.transform = 'translateY(-2px)' }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}>
                       <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: course.bg, border: `1px solid ${course.color}30`, borderRadius: '8px', width: '38px', height: '38px', marginBottom: '10px', color: course.color, fontWeight: '800', fontSize: '10px', letterSpacing: '0.5px' }}>
                         {course.icon}

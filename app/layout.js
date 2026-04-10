@@ -8,20 +8,6 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
 
 export const metadata = {
-  verification: {
-  google: 'your-google-verification-code',
-},
-robots: {
-  index: true,
-  follow: true,
-  nocache: true,
-  googleBot: {
-    index: true,
-    follow: true,
-    noimageindex: true,
-    'max-image-preview': 'none',
-  },
-},
   title: {
     default: 'Nettms Education — Building Tomorrow',
     template: '%s | Nettms Education',

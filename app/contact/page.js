@@ -86,7 +86,7 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMtyVDqCpW_DfEVxCYOm
         }),
       })
     } catch (err) {
-      console.error(err)
+      
     }
     setSubmitted(true)
   }

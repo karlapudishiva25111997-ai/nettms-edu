@@ -52,6 +52,22 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/logo.jpg" />
         <link rel="shortcut icon" href="/logo.jpg" />
         <link rel="apple-touch-icon" href="/logo.jpg" />
+
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z6Z4Z9XFMR"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-G-Z6Z4Z9XFMR');
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable}`}>
         <Navbar />

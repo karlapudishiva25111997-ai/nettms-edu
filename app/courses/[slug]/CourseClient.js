@@ -49,8 +49,8 @@ const TrainerIcon = ({ size = 22, color = '#1C2213' }) => (
   </svg>
 )
 
-const StarIcon = ({ size = 16, filled = true }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? '#F59E0B' : 'none'} stroke="#F59E0B" strokeWidth="1.5">
+const StarIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" strokeWidth="1.5">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
   </svg>
 )
@@ -78,7 +78,7 @@ const RocketIcon = ({ size = 22, color = '#fff' }) => (
 const DocumentIcon = ({ size = 20, color = '#fff' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-    <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+    <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
   </svg>
 )
 
@@ -114,6 +114,92 @@ const ArrowRightIcon = ({ size = 16 }) => (
   </svg>
 )
 
+// ===== TESTIMONIALS CAROUSEL =====
+// ⚠️ This function is OUTSIDE CourseClient — this is correct!
+function TestimonialsCarousel({ testimonials, color, bg }) {
+  const [active, setActive] = useState(0)
+  const total = testimonials.length
+
+  const prev = () => setActive(i => (i === 0 ? total - 1 : i - 1))
+  const next = () => setActive(i => (i === total - 1 ? 0 : i + 1))
+
+  const getVisible = () => {
+    return [0, 1, 2].map(offset => testimonials[(active + offset) % total])
+  }
+
+  const visible = getVisible()
+
+  return (
+    <div style={{ background: '#fff', borderRadius: '16px', padding: '28px 24px', marginBottom: '40px', border: '1px solid #eef0ec' }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '12px' }}>
+        <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: '24px', color: '#1C2213', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '10px', margin: 0 }}>
+          <StarIcon size={22} /> Student Success Stories
+        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button onClick={prev} style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #eef0ec', background: '#f8faf7', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.background = color; e.currentTarget.style.borderColor = color }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#f8faf7'; e.currentTarget.style.borderColor = '#eef0ec' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2213" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <span style={{ fontSize: '13px', color: '#888', fontWeight: '600' }}>{active + 1} / {total}</span>
+          <button onClick={next} style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #eef0ec', background: '#f8faf7', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.background = color; e.currentTarget.style.borderColor = color }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#f8faf7'; e.currentTarget.style.borderColor = '#eef0ec' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2213" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <p style={{ color: '#888', fontSize: '14px', marginBottom: '24px' }}>Real students. Real results. Real careers.</p>
+
+      {/* 3 Cards */}
+      <div className="testimonials-carousel-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+        {visible.map((t, idx) => (
+          <div key={idx} style={{ border: `1px solid ${idx === 0 ? color : '#eef0ec'}`, borderRadius: '12px', padding: '20px', background: idx === 0 ? bg : '#fafafa', position: 'relative', overflow: 'hidden', transition: 'all 0.3s' }}>
+            <div style={{ position: 'absolute', top: '8px', right: '14px', fontSize: '60px', color: color, opacity: 0.07, fontFamily: 'Georgia, serif', lineHeight: 1 }}>"</div>
+            <div style={{ display: 'flex', gap: '3px', marginBottom: '12px' }}>
+              {[...Array(t.rating)].map((_, j) => (<StarIcon key={j} size={14} />))}
+            </div>
+            <p style={{ color: '#555', fontSize: '13px', lineHeight: '1.7', marginBottom: '16px', fontStyle: 'italic', position: 'relative', zIndex: 1 }}>
+              "{t.review}"
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderTop: '1px solid #eee', paddingTop: '14px' }}>
+              {t.image ? (
+                <img src={t.image} alt={t.name} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${color}` }} />
+              ) : (
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: '700', fontSize: '14px', flexShrink: 0 }}>
+                  {t.initials}
+                </div>
+              )}
+              <div>
+                <div style={{ fontWeight: '700', color: '#1C2213', fontSize: '14px' }}>{t.name}</div>
+                <div style={{ color: '#888', fontSize: '12px' }}>{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '20px' }}>
+        {testimonials.map((_, i) => (
+          <button key={i} onClick={() => setActive(i)} style={{ width: i === active ? '24px' : '8px', height: '8px', borderRadius: '100px', background: i === active ? color : '#ddd', border: 'none', cursor: 'pointer', transition: 'all 0.3s', padding: 0 }} />
+        ))}
+      </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .testimonials-carousel-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+          .testimonials-carousel-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+      `}</style>
+    </div>
+  )
+}
+
+// ===== MAIN COMPONENT =====
 export default function CourseClient({ course }) {
   const [openFaq, setOpenFaq] = useState(null)
   const [openModule, setOpenModule] = useState(0)
@@ -172,7 +258,6 @@ export default function CourseClient({ course }) {
         <div style={{ position: 'absolute', top: '-200px', right: '-200px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(90,178,64,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-
           {/* Breadcrumb */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', flexWrap: 'wrap' }}>
             <Link href="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Home</Link>
@@ -183,7 +268,6 @@ export default function CourseClient({ course }) {
           </div>
 
           <div className="course-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '48px', alignItems: 'start' }}>
-
             {/* Left */}
             <div>
               <div style={{ position: 'relative', height: '260px', borderRadius: '16px', overflow: 'hidden', marginBottom: '28px' }}>
@@ -203,7 +287,6 @@ export default function CourseClient({ course }) {
               <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 5vw, 52px)', color: '#fff', fontWeight: '700', lineHeight: '1.15', marginBottom: '16px' }}>
                 {course.title}
               </h1>
-
               <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '16px', lineHeight: '1.8', marginBottom: '28px' }}>
                 {course.description}
               </p>
@@ -247,7 +330,6 @@ export default function CourseClient({ course }) {
                   </div>
                 </div>
               </div>
-
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '20px' }}>
                 {[
                   { label: 'Duration', value: course.duration },
@@ -262,15 +344,13 @@ export default function CourseClient({ course }) {
                   </div>
                 ))}
               </div>
-
-              <a href="#enroll" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#5AB240', color: '#fff', padding: '14px', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', textAlign: 'center', marginBottom: '10px' }}>
+              <a href="#enroll" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#5AB240', color: '#fff', padding: '14px', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', marginBottom: '10px' }}>
                 Enroll Now <ArrowRightIcon size={14} />
               </a>
-              <a href="https://wa.me/919963384555" target="_blank" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'transparent', color: '#fff', padding: '12px', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '14px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <a href="https://wa.me/919963384555" target="_blank" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'transparent', color: '#fff', padding: '12px', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '14px', border: '1px solid rgba(255,255,255,0.2)' }}>
                 <WhatsAppIcon size={15} /> WhatsApp Enquiry
               </a>
             </div>
-
           </div>
         </div>
       </section>
@@ -282,7 +362,6 @@ export default function CourseClient({ course }) {
 
             {/* Left Content */}
             <div>
-
               {/* What You Will Learn */}
               <div style={{ background: '#fff', borderRadius: '16px', padding: '28px 24px', marginBottom: '20px', border: '1px solid #eef0ec' }}>
                 <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: '24px', color: '#1C2213', fontWeight: '700', marginBottom: '20px' }}>
@@ -417,7 +496,6 @@ export default function CourseClient({ course }) {
                   ))}
                 </div>
               </div>
-
             </div>
 
             {/* Right Sidebar */}
@@ -427,7 +505,6 @@ export default function CourseClient({ course }) {
                   Enroll in this Course
                 </h3>
                 <p style={{ color: '#888', fontSize: '13px', marginBottom: '20px' }}>Fill the form and we will contact you within 24 hours</p>
-
                 {submitted ? (
                   <div style={{ textAlign: 'center', padding: '32px 0' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
@@ -448,38 +525,34 @@ export default function CourseClient({ course }) {
                   </form>
                 )}
               </div>
-
               <a href="https://wa.me/919963384555" target="_blank" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#25D366', color: '#fff', padding: '14px', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', marginBottom: '12px', width: '100%', boxSizing: 'border-box' }}>
-                <WhatsAppIcon size={20} color="#fff" />
-                Chat on WhatsApp
+                <WhatsAppIcon size={20} color="#fff" /> Chat on WhatsApp
               </a>
-
               <a href="tel:+919963384555" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#1C2213', color: '#fff', padding: '14px', borderRadius: '10px', textDecoration: 'none', fontWeight: '600', fontSize: '15px', width: '100%', boxSizing: 'border-box' }}>
-                <PhoneIcon size={16} />
-                Call +91 9963384555
+                <PhoneIcon size={16} /> Call +91 9963384555
               </a>
             </div>
           </div>
 
           {/* ===== URGENCY BANNER ===== */}
-{course.seats && (
-  <div className="urgency-banner" style={{ background: 'linear-gradient(135deg, #FF4B2B, #FF416C)', borderRadius: '16px', padding: '20px 28px', marginTop: '40px', marginBottom: '40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: 1, minWidth: '200px' }}>
-      <FireIcon size={32} />
-      <div>
-        <div style={{ color: '#fff', fontWeight: '800', fontSize: '20px', fontFamily: 'var(--font-playfair)' }}>
-          Only {course.seats} Seats Left!
-        </div>
-        <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginTop: '2px' }}>
-          Next batch starting soon — reserve your seat before it fills up
-        </div>
-      </div>
-    </div>
-    <a href="https://wa.me/919963384555" target="_blank" style={{ background: '#fff', color: '#FF4B2B', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '15px', whiteSpace: 'nowrap', flexShrink: 0 }}>
-      Reserve My Seat →
-    </a>
-  </div>
-)}
+          {course.seats && (
+            <div className="urgency-banner" style={{ background: 'linear-gradient(135deg, #FF4B2B, #FF416C)', borderRadius: '16px', padding: '20px 28px', marginTop: '40px', marginBottom: '40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: 1, minWidth: '200px' }}>
+                <FireIcon size={32} />
+                <div>
+                  <div style={{ color: '#fff', fontWeight: '800', fontSize: '20px', fontFamily: 'var(--font-playfair)' }}>
+                    Only {course.seats} Seats Left!
+                  </div>
+                  <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginTop: '2px' }}>
+                    Next batch starting soon — reserve your seat before it fills up
+                  </div>
+                </div>
+              </div>
+              <a href="https://wa.me/919963384555" target="_blank" style={{ background: '#fff', color: '#FF4B2B', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '15px', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                Reserve My Seat →
+              </a>
+            </div>
+          )}
 
           {/* ===== TRAINER PROFILE ===== */}
           {course.trainer && (
@@ -567,39 +640,13 @@ export default function CourseClient({ course }) {
             </div>
           </div>
 
-          {/* ===== TESTIMONIALS ===== */}
+          {/* ===== TESTIMONIALS CAROUSEL ===== */}
           {course.testimonials && (
-            <div style={{ background: '#fff', borderRadius: '16px', padding: '28px 24px', marginBottom: '40px', border: '1px solid #eef0ec' }}>
-              <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: '24px', color: '#1C2213', fontWeight: '700', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <StarIcon size={22} /> Student Success Stories
-              </h2>
-              <p style={{ color: '#888', fontSize: '14px', marginBottom: '24px' }}>Real students. Real results. Real careers.</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }} className="testimonials-grid">
-                {course.testimonials.map((t, i) => (
-                  <div key={i} style={{ border: '1px solid #eef0ec', borderRadius: '12px', padding: '20px', background: '#fafafa' }}>
-                    <div style={{ display: 'flex', gap: '3px', marginBottom: '12px' }}>
-                      {[...Array(t.rating)].map((_, j) => (
-                        <StarIcon key={j} size={14} />
-                      ))}
-                    </div>
-                    <p style={{ color: '#555', fontSize: '13px', lineHeight: '1.7', marginBottom: '16px', fontStyle: 'italic' }}>"{t.review}"</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderTop: '1px solid #eee', paddingTop: '14px' }}>
-                      {t.image ? (
-                        <img src={t.image} alt={t.name} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
-                      ) : (
-                        <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: course.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: '700', fontSize: '14px', flexShrink: 0 }}>
-                          {t.initials}
-                        </div>
-                      )}
-                      <div>
-                        <div style={{ fontWeight: '700', color: '#1C2213', fontSize: '14px' }}>{t.name}</div>
-                        <div style={{ color: '#888', fontSize: '12px' }}>{t.role}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <TestimonialsCarousel
+              testimonials={course.testimonials}
+              color={course.color}
+              bg={course.bg}
+            />
           )}
 
           {/* ===== COMPARE WITH OTHERS ===== */}
@@ -679,7 +726,6 @@ export default function CourseClient({ course }) {
           .who-grid { grid-template-columns: 1fr !important; }
           .related-grid { grid-template-columns: 1fr 1fr !important; }
           .placement-grid { grid-template-columns: 1fr 1fr !important; }
-          .testimonials-grid { grid-template-columns: 1fr 1fr !important; }
           .emi-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 600px) {
@@ -690,10 +736,13 @@ export default function CourseClient({ course }) {
           .emi-grid { grid-template-columns: 1fr !important; }
           .placement-grid { grid-template-columns: 1fr !important; }
           .placement-stats { grid-template-columns: repeat(3, 1fr) !important; }
-          .testimonials-grid { grid-template-columns: 1fr !important; }
           .urgency-banner { flex-direction: column !important; text-align: center !important; }
           .urgency-banner a { width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
           .trainer-card { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+          .testimonials-carousel-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+          .testimonials-carousel-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
     </>

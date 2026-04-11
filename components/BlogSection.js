@@ -1,113 +1,193 @@
- 'use client'
+'use client'
 import Link from 'next/link'
-import { articles } from '../lib/articles'
 
-export default function BlogSection() {
-  const latestArticles = articles.slice(0, 3)
+const batches = [
+  {
+    course: 'Data Analysis',
+    slug: 'data-analysis',
+    seats: 8,
+    mode: 'Online + Offline',
+    duration: '3 Months',
+    color: '#14B8A6',
+    bg: 'rgba(20,184,166,0.1)',
+    icon: 'DA',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+  {
+    course: 'Data Science',
+    slug: 'data-science',
+    seats: 5,
+    mode: 'Online + Offline',
+    duration: '4 Months',
+    color: '#5AB240',
+    bg: 'rgba(90,178,64,0.1)',
+    icon: 'DS',
+    image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+  {
+    course: 'Multi-Cloud DevOps',
+    slug: 'devops',
+    seats: 10,
+    mode: 'Online + Offline',
+    duration: '3-4 Months',
+    color: '#F97316',
+    bg: 'rgba(249,115,22,0.1)',
+    icon: 'AWS',
+    image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+  {
+    course: 'Full Stack Python',
+    slug: 'python-fullstack',
+    seats: 6,
+    mode: 'Online + Offline',
+    duration: '4-5 Months',
+    color: '#3B82F6',
+    bg: 'rgba(59,130,246,0.1)',
+    icon: 'PY',
+    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+  {
+    course: 'Gen AI & Agentic AI',
+    slug: 'gen-ai',
+    seats: 7,
+    mode: 'Online + Offline',
+    duration: '3 Months',
+    color: '#A855F7',
+    bg: 'rgba(168,85,247,0.1)',
+    icon: 'AI',
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+  {
+    course: 'Medical Coding',
+    slug: 'medical-coding',
+    seats: 12,
+    mode: 'Online + Offline',
+    duration: '2-3 Months',
+    color: '#EC4899',
+    bg: 'rgba(236,72,153,0.1)',
+    icon: 'MC',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
+    timing: 'Weekdays & Weekends',
+    level: 'Beginner to Advanced',
+  },
+]
 
+export default function UpcomingBatches() {
   return (
-    <section style={{ background: '#ffffff', padding: '100px 40px', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ background: '#1C2213', padding: '100px 40px', position: 'relative', overflow: 'hidden' }}>
 
-      {/* Background */}
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(90,178,64,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(90,178,64,0.03) 1px, transparent 1px)', backgroundSize: '55px 55px', pointerEvents: 'none', zIndex: 0 }} />
-      <div style={{ position: 'absolute', top: '-150px', right: '-150px', width: '500px', height: '500px', borderRadius: '50%', border: '1px solid rgba(90,178,64,0.07)', pointerEvents: 'none', zIndex: 0 }} />
-      <div style={{ position: 'absolute', bottom: '-150px', left: '-150px', width: '400px', height: '400px', borderRadius: '50%', border: '1px solid rgba(90,178,64,0.05)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(90,178,64,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(90,178,64,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', top: '-200px', right: '-200px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(90,178,64,0.08) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '-200px', left: '-200px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(90,178,64,0.05) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '48px', flexWrap: 'wrap', gap: '20px' }}>
-          <div>
-            <div style={{ display: 'inline-block', background: 'rgba(90,178,64,0.1)', border: '1px solid rgba(90,178,64,0.3)', color: '#5AB240', padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              Blog & Resources
-            </div>
-            <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 46px)', color: '#1C2213', fontWeight: '700', lineHeight: '1.2' }}>
-              Latest Career{' '}
-              <span style={{ color: '#5AB240' }}>Guides & Tips</span>
-            </h2>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(90,178,64,0.12)', border: '1px solid rgba(90,178,64,0.35)', color: '#5AB240', padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
+            Upcoming Batches
           </div>
-          <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1C2213', color: '#fff', padding: '12px 24px', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '14px', whiteSpace: 'nowrap' }}
-            onMouseEnter={e => e.currentTarget.style.background = '#5AB240'}
-            onMouseLeave={e => e.currentTarget.style.background = '#1C2213'}>
-            View All Articles →
-          </Link>
+          <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 46px)', color: '#ffffff', fontWeight: '700', marginBottom: '16px', lineHeight: '1.2' }}>
+            New Batches Starting{' '}
+            <span style={{ color: '#5AB240' }}>Soon</span>
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '17px', maxWidth: '500px', margin: '0 auto', lineHeight: '1.7' }}>
+            Limited seats available. WhatsApp us to know the next batch date and secure your spot.
+          </p>
         </div>
 
-        {/* Blog Cards */}
-        <div className="blog-section-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
-          {latestArticles.map((article, i) => (
-            <Link key={article.slug} href={`/blog/${article.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-              <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', border: '1px solid #eef0ec', transition: 'all 0.3s', height: '100%', boxShadow: '0 2px 12px rgba(0,0,0,0.04)' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 60px rgba(28,34,19,0.12)'; e.currentTarget.style.borderColor = article.color + '40' }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)'; e.currentTarget.style.borderColor = '#eef0ec' }}>
+        {/* Batch Cards */}
+        <div className="batches-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+          {batches.map((batch, i) => (
+            <div key={i}
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', overflow: 'hidden', transition: 'all 0.3s' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)'; e.currentTarget.style.borderColor = batch.color + '50' }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }}>
 
-                {/* Image */}
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }}
-                    onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
-                    onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-                    onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }}
-                  />
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%)' }} />
-                  <div style={{ position: 'absolute', bottom: '14px', left: '14px', right: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ background: article.color, color: '#fff', fontSize: '11px', fontWeight: '700', padding: '3px 10px', borderRadius: '100px' }}>
-                      {article.category}
-                    </span>
-                    <span style={{ background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: '11px', padding: '3px 10px', borderRadius: '100px' }}>
-                      ⏱ {article.readTime}
-                    </span>
-                  </div>
+              {/* Card Image */}
+              <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
+                <img src={batch.image} alt={batch.course} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }} onError={e => { e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, transparent 20%, rgba(28,34,19,0.9) 100%)' }} />
+
+                {/* Seats badge */}
+                <div style={{ position: 'absolute', top: '12px', right: '12px' }}>
+                  <span style={{ background: batch.seats <= 6 ? '#EF4444' : '#5AB240', color: '#fff', fontSize: '11px', fontWeight: '700', padding: '4px 10px', borderRadius: '100px' }}>
+                    {batch.seats <= 6 ? `⚠️ Only ${batch.seats} left!` : `${batch.seats} seats`}
+                  </span>
                 </div>
 
-                {/* Content */}
-                <div style={{ padding: '24px' }}>
-                  <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#1C2213', marginBottom: '10px', lineHeight: '1.4', fontFamily: 'var(--font-playfair)' }}>
-                    {article.title}
-                  </h3>
-                  <p style={{ color: '#777', fontSize: '14px', lineHeight: '1.7', marginBottom: '20px' }}>
-                    {article.excerpt.slice(0, 100)}...
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #f5f5f5', paddingTop: '16px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: article.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '11px', fontWeight: '700' }}>
-                        N
-                      </div>
-                      <span style={{ fontSize: '12px', color: '#888' }}>{article.author}</span>
-                    </div>
-                    <span style={{ color: article.color, fontSize: '13px', fontWeight: '700' }}>Read More →</span>
+                {/* Course name on image */}
+                <div style={{ position: 'absolute', bottom: '14px', left: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: batch.color, borderRadius: '8px', width: '36px', height: '36px', color: '#fff', fontWeight: '800', fontSize: '11px', flexShrink: 0 }}>
+                    {batch.icon}
+                  </div>
+                  <div style={{ fontWeight: '700', color: '#fff', fontSize: '15px' }}>
+                    {batch.course}
                   </div>
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
 
-        {/* Bottom Banner */}
-        <div style={{ marginTop: '60px', background: '#1C2213', borderRadius: '16px', padding: '40px 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
-          <div>
-            <h3 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(20px, 3vw, 28px)', color: '#fff', fontWeight: '700', marginBottom: '8px' }}>
-              Want Daily Career Tips & Tech News?
-            </h3>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px' }}>
-              Visit our blog for daily updates on tech careers, industry news and study guides.
-            </p>
-          </div>
-          <Link href="/blog" style={{ background: '#5AB240', color: '#fff', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '15px', whiteSpace: 'nowrap' }}>
-            Visit Blog →
-          </Link>
+              {/* Card Body */}
+              <div style={{ padding: '20px 24px' }}>
+
+                {/* Batch Details */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.duration}</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Mode</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.mode}</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>🕐 Timing</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.timing}</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0' }}>
+                    <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Level</span>
+                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '13px' }}>{batch.level}</span>
+                  </div>
+                </div>
+
+                {/* Batch date info */}
+                <div style={{ background: 'rgba(90,178,64,0.1)', border: '1px solid rgba(90,178,64,0.2)', borderRadius: '8px', padding: '10px 14px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5AB240" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span style={{ color: '#5AB240', fontSize: '13px', fontWeight: '600' }}>WhatsApp us for next batch date</span>
+                </div>
+
+                {/* CTA Buttons */}
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <a href="https://wa.me/919963384555" target="_blank" style={{ flex: 1, background: '#5AB240', color: '#fff', padding: '11px', borderRadius: '8px', textDecoration: 'none', fontSize: '13px', fontWeight: '700', textAlign: 'center', display: 'block' }}>
+                    Book Seat
+                  </a>
+                  <Link href={`/courses/${batch.slug}`} style={{ flex: 1, background: 'rgba(255,255,255,0.08)', color: '#fff', padding: '11px', borderRadius: '8px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', textAlign: 'center', display: 'block', border: '1px solid rgba(255,255,255,0.15)' }}>
+                    View Course
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
 
       <style>{`
         @media (max-width: 900px) {
-          .blog-section-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .batches-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 600px) {
-          .blog-section-grid { grid-template-columns: 1fr !important; }
+          .batches-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

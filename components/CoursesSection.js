@@ -229,7 +229,8 @@ export default function CoursesSection() {
                     {course.icon}
                   </div>
                   <span style={{ background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: '11px', fontWeight: '600', padding: '3px 10px', borderRadius: '100px' }}>
-                    ⏱ {course.duration}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', marginRight: '4px', verticalAlign: 'middle' }}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {course.duration}
                   </span>
                 </div>
               </div>
@@ -263,7 +264,10 @@ export default function CoursesSection() {
                       <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#5AB240', display: 'inline-block', animation: 'blink 1.5s infinite' }} />
                       <span style={{ fontSize: '12px', color: '#5AB240', fontWeight: '600' }}>Batch Starting Soon</span>
                     </div>
-                    <div style={{ fontSize: '11px', color: '#F97316', fontWeight: '600' }}>🔥 Limited Seats</div>
+                    <div style={{ fontSize: '11px', color: '#F97316', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                      Limited Seats
+                    </div>
                   </div>
                   <Link href={`/courses/${course.slug}`} style={{ background: '#1C2213', color: '#fff', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', transition: 'background 0.2s' }}
                     onMouseEnter={e => e.currentTarget.style.background = '#5AB240'}

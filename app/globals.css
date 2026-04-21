@@ -1,0 +1,70 @@
+/* ===== GLOBAL MOBILE FIXES ===== */
+@media (max-width: 768px) {
+
+  /* Fix all sections padding */
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Fix all buttons */
+  a[style], button[style] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Fix meta chips row */
+  .meta-chips {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Fix hero section */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Fix CTA buttons on mobile */
+  .cta-row {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .cta-row a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Fix top info bar on mobile */
+  .top-info-bar {
+    display: none !important;
+  }
+
+  /* Fix footer grid */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix course content padding */
+  .course-content {
+    padding: 20px 16px !important;
+  }
+}
+
+
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

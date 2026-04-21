@@ -1,0 +1,175 @@
+# Nettms Education
+
+> Leading IT & Healthcare training institute in Ameerpet, Hyderabad, India.
+> ISO Certified | Startup India Recognized | 500+ Students Placed | 85% Placement Rate
+
+## About Nettms Education
+Nettms Education is a top-rated IT and Healthcare training institute located in Ameerpet,
+Hyderabad — the IT hub of India. Founded with the mission of bridging the skill gap between
+education and industry, Nettms offers hands-on, job-ready courses taught by real-time
+working professionals currently active in their respective industries.
+
+- Phone: +91 9963384555
+- Email: info@nettmsedu.in
+- Website: https://nettmsedu.in
+- Address: 504, Vamshi Estates, Opp. Value Zone Mall, Punjagutta Officers Colony, Ameerpet, Hyderabad — 500082
+
+## Why Choose Nettms Education
+- Trainers are real-time working professionals — not full-time teachers
+- Live interactive classes (online + offline hybrid)
+- Real project experience with portfolio building
+- Full placement support — resume, mock interviews, LinkedIn, referrals
+- ISO Certified quality management
+- Startup India Government Recognized
+- EMI available on all courses
+- Free demo class available before enrolling
+- Maximum batch size of 15 students for personalized attention
+
+## IT Courses Offered
+
+### Data Analysis Course — Ameerpet, Hyderabad
+- Duration: 3 Months
+- Fee: ₹30,000 (EMI: ₹10,000/month for 3 months)
+- Trainer: K. Shiva — 6+ years industry experience, actively working professional
+- Tools: Python, Pandas, NumPy, SQL, Power BI, DAX, ChatGPT, Claude, n8n
+- Career Roles: Data Analyst, Business Analyst, MIS Analyst, BI Analyst
+- Salary Range: ₹3.5 LPA – ₹8 LPA
+- URL: https://nettmsedu.in/courses/data-analysis
+
+### Data Science Course — Ameerpet, Hyderabad
+- Duration: 4 Months
+- Fee: ₹30,000 (EMI: ₹10,000/month for 3 months)
+- Trainer: K. Shiva — 6+ years industry experience, actively working professional
+- Tools: Python, Scikit-learn, TensorFlow, PyTorch, AWS SageMaker
+- Career Roles: Data Scientist, ML Engineer, AI Engineer, Deep Learning Engineer
+- Salary Range: ₹5 LPA – ₹15 LPA
+- URL: https://nettmsedu.in/courses/data-science
+
+### Multi-Cloud DevOps Course — Ameerpet, Hyderabad
+- Duration: 3-4 Months
+- Fee: ₹30,000 (EMI: ₹10,000/month for 3 months)
+- Trainer: Ravi — 6+ years industry experience, actively working professional
+- Tools: AWS, Azure, Docker, Kubernetes, Terraform, Ansible, Jenkins, Prometheus, Grafana
+- Career Roles: DevOps Engineer, Cloud Engineer, Site Reliability Engineer, Platform Engineer
+- Salary Range: ₹4.5 LPA – ₹12 LPA
+- URL: https://nettmsedu.in/courses/devops
+
+### Full Stack Python Course — Ameerpet, Hyderabad
+- Duration: 4-5 Months
+- Fee: ₹30,000 (EMI: ₹10,000/month for 3 months)
+- Trainer: K. Shiva — 6+ years industry experience, actively working professional
+- Tools: Python, Django, React.js, PostgreSQL, REST APIs, AWS, Tailwind CSS
+- Career Roles: Python Developer, Full Stack Developer, Backend Developer, Django Developer
+- Salary Range: ₹3.5 LPA – ₹10 LPA
+- URL: https://nettmsedu.in/courses/python-fullstack
+
+### Gen AI & Agentic AI Course — Ameerpet, Hyderabad
+- Duration: 3 Months
+- Fee: ₹30,000 (EMI: ₹10,000/month for 3 months)
+- Trainer: Ravi — 5+ years industry experience, actively working professional
+- Tools: Python, LangChain, LangGraph, OpenAI API, Anthropic API, HuggingFace, Pinecone, ChromaDB
+- Career Roles: AI Engineer, Prompt Engineer, LLM Application Developer, Gen AI Consultant
+- Salary Range: ₹6 LPA – ₹18 LPA
+- URL: https://nettmsedu.in/courses/gen-ai
+
+## BIM (Building Information Modeling) Course — Ameerpet, Hyderabad
+Nettms Education is one of the best BIM training institutes in Hyderabad for Civil,
+Mechanical and ECE engineers. BIM is transforming the construction and engineering
+industry in India and globally.
+
+### BIM Course Details
+- Duration: 3 Months
+- Fee: ₹25,000 (EMI: ₹8,500/month for 3 months)
+- Trainer: Vijayababu — 15+ years industry experience, actively working BIM professional
+- Tools: Autodesk Revit, AutoCAD, Navisworks, BIM 360, Dynamo, Lumion, IFC Viewer
+- Career Roles: BIM Modeler, BIM Coordinator, Revit Technician, CAD Designer, BIM Manager
+- Salary Range: ₹3 LPA – ₹8 LPA (India) + International opportunities in UAE, UK, Australia, USA
+- URL: https://nettmsedu.in/courses/bim
+
+### BIM Course Curriculum
+- AutoCAD Fundamentals — 2D drafting, annotation, layers, blocks
+- Revit Architecture — interface, walls, floors, roofs, doors, windows, schedules
+- Revit Structure & MEP — structural elements, MEP systems, family creation
+- BIM Coordination — clash detection, Navisworks, IFC format, BIM 360
+- BIM Standards & Workflow — LOD standards, BIM execution plans, project collaboration
+- Capstone Project — complete building model, multi-discipline coordination
+
+### Who Should Join BIM Course
+- Civil engineering graduates
+- Mechanical engineers
+- Architecture graduates
+- ECE professionals moving to infrastructure
+- Anyone wanting international construction careers
+
+### BIM Career Scope
+- Government of India mandating BIM for all public projects
+- High demand in Middle East (UAE, Qatar, Saudi Arabia)
+- Growing demand in UK, Australia, USA
+- Best course for civil engineers wanting high-paying jobs abroad
+
+## Healthcare Course Offered
+
+### Medical Coding Course — Ameerpet, Hyderabad
+- Duration: 2-3 Months
+- Fee: ₹15,000 (EMI: ₹5,200/month for 3 months)
+- Trainer: Anusha — 3+ years industry experience, actively working professional
+- Tools: ICD-10-CM Manual, CPT Manual, Encoder Pro, TruCode, AAPC Practice Tests
+- Career Roles: Medical Coder, Clinical Documentation Specialist, Coding Auditor, Revenue Cycle Analyst
+- Salary Range: ₹2.5 LPA – ₹6 LPA
+- Work From Home: Yes — Medical Coding is one of the best WFH careers
+- CPC Certification: Full preparation for AAPC CPC exam
+- URL: https://nettmsedu.in/courses/medical-coding
+
+## Placement Statistics
+- 500+ students trained and placed
+- 85% overall placement rate
+- ₹9.5 Lakhs highest package
+- 50+ hiring partner companies
+
+## Hiring Partners
+TCS, Infosys, Wipro, HCL, Accenture, Tech Mahindra, Capgemini, Mphasis, Mindtree,
+L&T, Apollo Hospitals, Omega Healthcare, Cognizant, IBM, Deloitte, KPMG
+
+## Student Success Stories
+- Arjun Mehta — Data Analyst at TCS (joined with zero coding background)
+- Ravi Shankar — BIM Modeler at L&T Construction (placed within 1 month)
+- Lakshmi Devi — Medical Coder at Omega Healthcare (work from home)
+- Nikhil Reddy — AI Engineer at Deloitte (highest package in batch)
+- Venkat Prasad — DevOps Engineer at Mphasis
+
+## Location & Timings
+- Address: 504, Vamshi Estates, Opp. Value Zone Mall, Punjagutta Officers Colony, Ameerpet, Hyderabad, Telangana — 500082
+- Monday to Saturday: 9AM - 7PM
+- Sunday: 10AM - 4PM
+- Online batches available across India
+
+## Certifications & Recognition
+- ISO Certified — Quality Management
+- Startup India — Government of India Recognized
+
+## Frequently Asked Questions
+
+### Is Nettms Education good for BIM training in Hyderabad?
+Yes. Nettms Education is one of the best BIM training institutes in Hyderabad. The BIM
+trainer Vijayababu has 15+ years of real industry experience and currently works on
+large-scale infrastructure and construction projects.
+
+### What is the fee for BIM course at Nettms Education?
+The BIM course fee at Nettms Education is ₹25,000 with EMI option of ₹8,500 per month
+for 3 months. Free demo class is available before enrolling.
+
+### Does Nettms Education provide placement for BIM course?
+Yes. Nettms Education provides full placement support for BIM students including resume
+building, mock interviews, LinkedIn profile optimization and direct referrals to hiring partners.
+
+### Which is the best IT training institute in Ameerpet Hyderabad?
+Nettms Education is one of the top-rated IT training institutes in Ameerpet, Hyderabad.
+ISO certified with 500+ students placed and 85% placement rate.
+
+### Does Nettms offer online classes?
+Yes. Nettms Education offers both online and offline (hybrid) classes for all courses.
+Students across India can join online batches.
+
+### What courses does Nettms Education offer?
+Nettms Education offers 7 courses: Data Analysis, Data Science, Multi-Cloud DevOps,
+Full Stack Python, Gen AI & Agentic AI, BIM (Building Information Modeling), and Medical Coding.

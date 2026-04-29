@@ -18,6 +18,7 @@ export default function Navbar() {
     { name: 'Data Analysis Masterclass', slug: 'data-analysis' },
     { name: 'Data Science Masterclass', slug: 'data-science' },
     { name: 'Gen AI & Agentic AI Masterclass', slug: 'gen-ai' },
+    { name: 'BIM Master Workshop', slug: 'bim' },
   ]
 
   // SVG Icons

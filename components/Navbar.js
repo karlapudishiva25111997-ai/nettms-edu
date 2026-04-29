@@ -144,9 +144,9 @@ export default function Navbar() {
             )}
           </div>
 
-          <a href="https://wa.me/919963384555" target="_blank" style={{ background: '#5AB240', color: '#fff', padding: '10px 22px', borderRadius: '6px', textDecoration: 'none', fontWeight: '600', fontSize: '14px' }}>
+          <Link href="/contact" style={{ background: '#5AB240', color: '#fff', padding: '10px 22px', borderRadius: '6px', textDecoration: 'none', fontWeight: '600', fontSize: '14px' }}>
             Enroll Now
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}

@@ -38,6 +38,12 @@ export default function MasterclassPage({ data }) {
         }),
       })
     } catch (err) {}
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'Lead', {
+        content_name: `${data.courseName} Masterclass`,
+        content_category: 'Masterclass Registration',
+      })
+    }
     setLoading(false)
     setSubmitted(true)
   }

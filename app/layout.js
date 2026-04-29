@@ -12,8 +12,8 @@ export const metadata = {
     default: 'Nettms Education — Building Tomorrow',
     template: '%s | Nettms Education',
   },
-  description: 'Professional IT & Healthcare training courses in Hyderabad. Data Science, DevOps, Full Stack Python, Gen AI, BIM, Medical Coding. 500+ students trained. 85% placement rate.',
-  keywords: ['data science course hyderabad', 'devops training hyderabad', 'full stack python hyderabad', 'gen ai course hyderabad', 'medical coding hyderabad', 'bim training hyderabad', 'IT training ameerpet', 'nettms education'],
+  description: 'Specialised Data, AI and BIM training in Hyderabad. Data Analysis, Data Science, Gen AI & Agentic AI, BIM. 500+ students trained. 85% placement rate.',
+  keywords: ['data analysis course hyderabad', 'data science course hyderabad', 'gen ai course hyderabad', 'agentic ai course hyderabad', 'bim training hyderabad', 'data analytics ameerpet', 'nettms education'],
   authors: [{ name: 'Nettms Education' }],
   creator: 'Nettms Education',
   publisher: 'Nettms Urban Habitat',
@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
               "name": "Nettms Education",
               "url": "https://nettmsedu.in",
               "logo": "https://nettmsedu.in/logo.jpg",
-              "description": "Leading IT & Healthcare training institute in Ameerpet, Hyderabad. Courses in Data Science, DevOps, Full Stack Python, Gen AI, BIM and Medical Coding.",
+              "description": "Specialised Data, AI and BIM training institute in Ameerpet, Hyderabad. Courses in Data Analysis, Data Science, Gen AI and BIM.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Ameerpet",
@@ -98,15 +98,12 @@ export default function RootLayout({ children }) {
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "IT & Healthcare Courses",
+                "name": "Data, AI and BIM Courses",
                 "itemListElement": [
+                  { "@type": "Course", "name": "Data Analysis", "url": "https://nettmsedu.in/courses/data-analysis" },
                   { "@type": "Course", "name": "Data Science", "url": "https://nettmsedu.in/courses/data-science" },
-                  { "@type": "Course", "name": "Multi-Cloud DevOps", "url": "https://nettmsedu.in/courses/devops" },
-                  { "@type": "Course", "name": "Full Stack Python", "url": "https://nettmsedu.in/courses/python-fullstack" },
                   { "@type": "Course", "name": "Gen AI & Agentic AI", "url": "https://nettmsedu.in/courses/gen-ai" },
-                  { "@type": "Course", "name": "BIM", "url": "https://nettmsedu.in/courses/bim" },
-                  { "@type": "Course", "name": "Medical Coding", "url": "https://nettmsedu.in/courses/medical-coding" },
-                  { "@type": "Course", "name": "Data Analysis", "url": "https://nettmsedu.in/courses/data-analysis" }
+                  { "@type": "Course", "name": "BIM", "url": "https://nettmsedu.in/courses/bim" }
                 ]
               }
             })

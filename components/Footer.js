@@ -109,11 +109,8 @@ export default function Footer() {
               {[
                 { name: 'Data Analysis', slug: 'data-analysis' },
                 { name: 'Data Science', slug: 'data-science' },
-                { name: 'Multi-Cloud DevOps', slug: 'devops' },
-                { name: 'Full Stack Python', slug: 'python-fullstack' },
                 { name: 'Gen AI & Agentic AI', slug: 'gen-ai' },
                 { name: 'BIM', slug: 'bim' },
-                { name: 'Medical Coding', slug: 'medical-coding' },
               ].map(course => (
                 <Link key={course.slug} href={`/courses/${course.slug}`}
                   style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', textDecoration: 'none', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}

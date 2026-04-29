@@ -85,12 +85,9 @@ export default function Hero() {
   }, [mounted])
 
   const courses = [
-    { icon: 'PY', title: 'Full Stack Python', duration: '4-5 Months', color: '#3B82F6', bg: 'rgba(59,130,246,0.15)' },
-    { icon: 'AWS', title: 'Multi-Cloud DevOps', duration: '3-4 Months', color: '#F97316', bg: 'rgba(249,115,22,0.15)' },
-    { icon: 'AI', title: 'Gen AI & Agentic AI', duration: '3 Months', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
     { icon: 'DA', title: 'Data Analysis', duration: '3 Months', color: '#14B8A6', bg: 'rgba(20,184,166,0.15)' },
     { icon: 'DS', title: 'Data Science', duration: '4 Months', color: '#5AB240', bg: 'rgba(90,178,64,0.15)' },
-    { icon: 'MC', title: 'Medical Coding', duration: '2-3 Months', color: '#EC4899', bg: 'rgba(236,72,153,0.15)' },
+    { icon: 'AI', title: 'Gen AI & Agentic AI', duration: '3 Months', color: '#A855F7', bg: 'rgba(168,85,247,0.15)' },
     { icon: 'BIM', title: 'BIM', duration: '3 Months', color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
   ]
 

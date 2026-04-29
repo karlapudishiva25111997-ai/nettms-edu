@@ -5,15 +5,19 @@ import Link from 'next/link'
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [coursesOpen, setCoursesOpen] = useState(false)
+  const [masterclassOpen, setMasterclassOpen] = useState(false)
 
   const courses = [
     { name: 'Data Analysis', slug: 'data-analysis' },
     { name: 'Data Science', slug: 'data-science' },
-    { name: 'Multi-Cloud DevOps (AWS, Azure)', slug: 'devops' },
-    { name: 'Full Stack — Python', slug: 'python-fullstack' },
     { name: 'Gen AI & Agentic AI', slug: 'gen-ai' },
     { name: 'BIM', slug: 'bim' },
-    { name: 'Medical Coding', slug: 'medical-coding' },
+  ]
+
+  const masterclasses = [
+    { name: 'Data Analysis Masterclass', slug: 'data-analysis' },
+    { name: 'Data Science Masterclass', slug: 'data-science' },
+    { name: 'Gen AI & Agentic AI Masterclass', slug: 'gen-ai' },
   ]
 
   // SVG Icons
@@ -115,6 +119,31 @@ export default function Navbar() {
           <Link href="/about" style={{ textDecoration: 'none', color: '#1C2213', fontWeight: '500', fontSize: '15px' }}>About</Link>
           <Link href="/contact" style={{ textDecoration: 'none', color: '#1C2213', fontWeight: '500', fontSize: '15px' }}>Contact</Link>
 
+          {/* Free Masterclass Dropdown */}
+          <div style={{ position: 'relative' }}
+            onMouseEnter={() => setMasterclassOpen(true)}
+            onMouseLeave={() => setMasterclassOpen(false)}>
+            <button onClick={() => setMasterclassOpen(!masterclassOpen)} style={{ background: 'rgba(20,184,166,0.1)', border: '1.5px solid #14B8A6', cursor: 'pointer', fontWeight: '700', fontSize: '14px', color: '#14B8A6', display: 'flex', alignItems: 'center', gap: '6px', padding: '9px 18px', borderRadius: '6px', fontFamily: 'inherit' }}>
+              🎓 Free Masterclass <ChevronIcon />
+            </button>
+
+            {/* Invisible bridge */}
+            <div style={{ position: 'absolute', top: '100%', left: 0, width: '100%', height: '16px', background: 'transparent' }} />
+
+            {masterclassOpen && (
+              <div style={{ position: 'absolute', top: 'calc(100% + 8px)', right: '0', background: '#fff', boxShadow: '0 8px 32px rgba(0,0,0,0.12)', borderRadius: '8px', padding: '8px 0', minWidth: '260px', zIndex: 999, border: '1px solid #eee' }}>
+                {masterclasses.map((mc) => (
+                  <Link key={mc.slug} href={`/masterclass/${mc.slug}`} onClick={() => setMasterclassOpen(false)}
+                    style={{ display: 'block', padding: '10px 20px', color: '#1C2213', textDecoration: 'none', fontSize: '14px', fontWeight: '500', borderBottom: '1px solid #f5f5f5', transition: 'all 0.2s' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.color = '#14B8A6'; e.currentTarget.style.paddingLeft = '26px' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1C2213'; e.currentTarget.style.paddingLeft = '20px' }}>
+                    {mc.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a href="https://wa.me/919963384555" target="_blank" style={{ background: '#5AB240', color: '#fff', padding: '10px 22px', borderRadius: '6px', textDecoration: 'none', fontWeight: '600', fontSize: '14px' }}>
             Enroll Now
           </a>
@@ -147,7 +176,16 @@ export default function Navbar() {
           <Link href="/about" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>About</Link>
           <Link href="/contact" style={{ display: 'block', padding: '12px 0', color: '#1C2213', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #f0f0f0' }} onClick={() => setMenuOpen(false)}>Contact</Link>
 
-          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
+            <div style={{ fontWeight: '600', color: '#14B8A6', marginBottom: '8px', fontSize: '13px', letterSpacing: '1px' }}>🎓 FREE MASTERCLASS</div>
+            {masterclasses.map(mc => (
+              <Link key={mc.slug} href={`/masterclass/${mc.slug}`} style={{ display: 'block', padding: '6px 0 6px 12px', color: '#1C2213', textDecoration: 'none', fontSize: '14px' }} onClick={() => setMenuOpen(false)}>
+                {mc.name}
+              </Link>
+            ))}
+          </div>
+
+          <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <a href="https://wa.me/919963384555" target="_blank" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#25D366', color: '#fff', padding: '12px', borderRadius: '6px', textDecoration: 'none', fontWeight: '600', textAlign: 'center' }}>
               <WhatsAppIcon /> WhatsApp Us
             </a>

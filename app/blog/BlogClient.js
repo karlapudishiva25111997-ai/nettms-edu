@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { articles } from '../../lib/articles'
 
 const GNEWS_API_KEY = process.env.NEXT_PUBLIC_GNEWS_API_KEY
-const categories = ['All', 'Data Science', 'DevOps', 'Artificial Intelligence', 'Healthcare', 'Technology']
+const categories = ['All', 'Data Analysis', 'Data Science', 'Artificial Intelligence', 'BIM', 'Technology']
 
 export default function BlogClient() {
   const [news, setNews] = useState([])

@@ -67,17 +67,11 @@ export default function PlacementsClient() {
 
   const placements = [
     { name: 'Rahul Sharma', role: 'Data Analyst', company: 'TCS', course: 'Data Analysis', initial: 'RS', color: '#14B8A6', salary: '4.2 LPA' },
-    { name: 'Priya Reddy', role: 'Python Developer', company: 'Infosys', course: 'Full Stack Python', initial: 'PR', color: '#3B82F6', salary: '5.5 LPA' },
-    { name: 'Mohammed Farhan', role: 'DevOps Engineer', company: 'Wipro', course: 'Multi-Cloud DevOps', initial: 'MF', color: '#F97316', salary: '7.2 LPA' },
-    { name: 'Sneha Patel', role: 'Medical Coder', company: 'Omega Healthcare', course: 'Medical Coding', initial: 'SP', color: '#EC4899', salary: '3.8 LPA' },
     { name: 'Aditya Kumar', role: 'AI Engineer', company: 'Tech Mahindra', course: 'Gen AI & Agentic AI', initial: 'AK', color: '#A855F7', salary: '9.5 LPA' },
     { name: 'Lakshmi Devi', role: 'Data Scientist', company: 'HCL Technologies', course: 'Data Science', initial: 'LD', color: '#5AB240', salary: '8.0 LPA' },
     { name: 'Kiran Babu', role: 'BIM Coordinator', company: 'L&T Construction', course: 'BIM', initial: 'KB', color: '#F59E0B', salary: '4.5 LPA' },
     { name: 'Divya Nair', role: 'Business Analyst', company: 'Capgemini', course: 'Data Analysis', initial: 'DN', color: '#14B8A6', salary: '5.0 LPA' },
-    { name: 'Sai Krishna', role: 'Cloud Engineer', company: 'Accenture', course: 'Multi-Cloud DevOps', initial: 'SK', color: '#F97316', salary: '8.5 LPA' },
-    { name: 'Ananya Singh', role: 'Full Stack Developer', company: 'Mphasis', course: 'Full Stack Python', initial: 'AS', color: '#3B82F6', salary: '6.0 LPA' },
     { name: 'Ravi Teja', role: 'ML Engineer', company: 'Mindtree', course: 'Data Science', initial: 'RT', color: '#5AB240', salary: '7.8 LPA' },
-    { name: 'Pooja Sharma', role: 'Medical Coder', company: 'Apollo Hospitals', course: 'Medical Coding', initial: 'PS', color: '#EC4899', salary: '3.5 LPA' },
   ]
 
   const companies = ['TCS', 'Infosys', 'Wipro', 'HCL', 'Accenture', 'Tech Mahindra', 'Capgemini', 'Mphasis', 'Mindtree', 'L&T', 'Apollo Hospitals', 'Omega Healthcare']

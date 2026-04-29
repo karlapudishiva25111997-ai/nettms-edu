@@ -6,11 +6,8 @@ export default function sitemap() {
   const courses = [
     'data-analysis',
     'data-science',
-    'devops',
-    'python-fullstack',
     'gen-ai',
     'bim',
-    'medical-coding',
   ]
 
   const courseUrls = courses.map(slug => ({

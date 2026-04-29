@@ -244,11 +244,8 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMtyVDqCpW_DfEVxCYOm
                         <option value="">Select a course</option>
                         <option>Data Analysis</option>
                         <option>Data Science</option>
-                        <option>Multi-Cloud DevOps</option>
-                        <option>Full Stack Python</option>
                         <option>Gen AI & Agentic AI</option>
                         <option>BIM</option>
-                        <option>Medical Coding</option>
                       </select>
                     </div>
 

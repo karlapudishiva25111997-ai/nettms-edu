@@ -4,11 +4,178 @@ import Link from 'next/link'
 
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyMtyVDqCpW_DfEVxCYOmrkuvHqYmrBA426uxYawiutIwkH_jyhks6LxRCZtzUXgZuMDg/exec'
 
-const CheckIcon = ({ color = '#5AB240' }) => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+// ─────── Modern Stroke-Based SVG Icons ───────
+const sw = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }
+
+const CheckIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} strokeWidth={2.5} style={{ flexShrink: 0 }}>
     <polyline points="20 6 9 17 4 12"/>
   </svg>
 )
+
+const GraduationIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+  </svg>
+)
+
+const ClockIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+  </svg>
+)
+
+const UserIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+  </svg>
+)
+
+const PulseIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+  </svg>
+)
+
+const MapPinIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+  </svg>
+)
+
+const MoneyIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <line x1="12" y1="1" x2="12" y2="23"/>
+    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+  </svg>
+)
+
+const ChartIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+)
+
+const TrendingUpIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+  </svg>
+)
+
+const TrophyIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+    <path d="M4 22h16"/>
+    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+    <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+  </svg>
+)
+
+const BuildingIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <rect x="4" y="2" width="16" height="20" rx="2"/>
+    <path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>
+  </svg>
+)
+
+const RocketIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+  </svg>
+)
+
+const TargetIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </svg>
+)
+
+const ToolIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+  </svg>
+)
+
+const ListIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+    <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+  </svg>
+)
+
+const UsersIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </svg>
+)
+
+const StarIcon = ({ size = 16, filled = true }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </svg>
+)
+
+const BriefcaseIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <rect x="2" y="7" width="20" height="14" rx="2"/>
+    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+  </svg>
+)
+
+const GiftIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <polyline points="20 12 20 22 4 22 4 12"/>
+    <rect x="2" y="7" width="20" height="5"/>
+    <line x1="12" y1="22" x2="12" y2="7"/>
+    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+  </svg>
+)
+
+const HelpIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+    <line x1="12" y1="17" x2="12.01" y2="17"/>
+  </svg>
+)
+
+const LockIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...sw} style={{ flexShrink: 0 }}>
+    <rect x="3" y="11" width="18" height="11" rx="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+)
+
+const SparklesIcon = ({ size = 64 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/>
+    <path d="M5 3v4M3 5h4M19 17v4M17 19h4"/>
+  </svg>
+)
+
+// Icon registry for data-driven icons (chips, stats)
+const iconMap = {
+  graduation: GraduationIcon,
+  clock: ClockIcon,
+  user: UserIcon,
+  pulse: PulseIcon,
+  mappin: MapPinIcon,
+  money: MoneyIcon,
+  chart: ChartIcon,
+  trending: TrendingUpIcon,
+  trophy: TrophyIcon,
+  building: BuildingIcon,
+  briefcase: BriefcaseIcon,
+}
 
 export default function MasterclassPage({ data }) {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', qualification: '' })
@@ -70,10 +237,10 @@ export default function MasterclassPage({ data }) {
 
             {/* Left */}
             <div>
-              {/* Badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.15)`, border: `1px solid rgba(${rgba},0.4)`, color: primary, padding: '8px 20px', borderRadius: '100px', fontSize: '13px', fontWeight: '700', marginBottom: '24px' }}>
+              {/* Live Badge */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: `rgba(${rgba},0.15)`, border: `1px solid rgba(${rgba},0.4)`, color: primary, padding: '8px 20px', borderRadius: '100px', fontSize: '13px', fontWeight: '700', marginBottom: '24px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: primary, display: 'inline-block', animation: 'pulse 2s infinite' }} />
-                🎓 FREE 2-Hour Live Masterclass
+                <GraduationIcon size={14} /> FREE 2-Hour Live Masterclass
               </div>
 
               <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(32px, 5vw, 58px)', color: '#fff', fontWeight: '700', lineHeight: '1.15', marginBottom: '20px' }}>
@@ -86,19 +253,22 @@ export default function MasterclassPage({ data }) {
                 dangerouslySetInnerHTML={{ __html: data.hero.tagline }} />
 
               {/* Key info chips */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '36px' }}>
-                {data.hero.chips.map((chip, i) => (
-                  <div key={i} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px', padding: '8px 16px', color: '#fff', fontSize: '13px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span>{chip.icon}</span> {chip.label}
-                  </div>
-                ))}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '36px' }}>
+                {data.hero.chips.map((chip, i) => {
+                  const ChipIcon = iconMap[chip.icon] || GraduationIcon
+                  return (
+                    <div key={i} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '8px', padding: '8px 14px', color: '#fff', fontSize: '13px', fontWeight: '600', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ color: primary, display: 'inline-flex' }}><ChipIcon size={14} /></span> {chip.label}
+                    </div>
+                  )
+                })}
               </div>
 
               {/* Benefits */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '36px' }}>
                 {data.hero.benefits.map((b, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <CheckIcon />
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ color: primary, display: 'inline-flex' }}><CheckIcon /></span>
                     <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px' }}>{b}</span>
                   </div>
                 ))}
@@ -119,9 +289,11 @@ export default function MasterclassPage({ data }) {
             <div id="register" style={{ background: '#fff', borderRadius: '20px', padding: '36px', boxShadow: '0 24px 80px rgba(0,0,0,0.3)' }}>
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <div style={{ fontSize: '64px', marginBottom: '16px' }}>🎉</div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '88px', height: '88px', borderRadius: '50%', background: `rgba(${rgba},0.1)`, color: primary, marginBottom: '20px' }}>
+                    <SparklesIcon size={48} />
+                  </div>
                   <h3 style={{ fontFamily: 'var(--font-playfair)', fontSize: '24px', color: '#1C2213', fontWeight: '700', marginBottom: '12px' }}>
-                    You're Registered!
+                    You&apos;re Registered!
                   </h3>
                   <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.7', marginBottom: '24px' }}>
                     Thank you! Our team will call you with the masterclass details within a few hours.
@@ -130,8 +302,8 @@ export default function MasterclassPage({ data }) {
               ) : (
                 <>
                   <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-                    <div style={{ background: `rgba(${rgba},0.1)`, color: primary, fontSize: '12px', fontWeight: '800', padding: '6px 16px', borderRadius: '100px', display: 'inline-block', marginBottom: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                      🎓 Free Registration
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: `rgba(${rgba},0.1)`, color: primary, fontSize: '12px', fontWeight: '800', padding: '6px 16px', borderRadius: '100px', marginBottom: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                      <GraduationIcon size={12} /> Free Registration
                     </div>
                     <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: '22px', color: '#1C2213', fontWeight: '700', marginBottom: '6px' }}>
                       Reserve Your Free Seat
@@ -170,13 +342,13 @@ export default function MasterclassPage({ data }) {
                     </div>
 
                     <button type="submit" disabled={loading}
-                      style={{ background: primary, color: '#fff', padding: '15px', borderRadius: '8px', border: 'none', fontWeight: '800', fontSize: '16px', cursor: loading ? 'not-allowed' : 'pointer', width: '100%', marginTop: '4px', opacity: loading ? 0.7 : 1 }}>
-                      {loading ? 'Registering...' : '🎓 Register for Free Masterclass'}
+                      style={{ background: primary, color: '#fff', padding: '15px', borderRadius: '8px', border: 'none', fontWeight: '800', fontSize: '16px', cursor: loading ? 'not-allowed' : 'pointer', width: '100%', marginTop: '4px', opacity: loading ? 0.7 : 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                      {loading ? 'Registering...' : <><GraduationIcon size={18} /> Register for Free Masterclass</>}
                     </button>
                   </form>
 
-                  <p style={{ color: '#aaa', fontSize: '12px', textAlign: 'center', marginTop: '16px' }}>
-                    🔒 Your details are safe. We never share your information.
+                  <p style={{ color: '#aaa', fontSize: '12px', textAlign: 'center', marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', width: '100%', justifyContent: 'center' }}>
+                    <LockIcon size={12} /> Your details are safe. We never share your information.
                   </p>
                 </>
               )}
@@ -190,8 +362,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#fff', padding: '80px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              {data.careerSection.badge}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <RocketIcon size={14} /> {data.careerSection.badge}
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 44px)', color: '#1C2213', fontWeight: '700', marginBottom: '14px', lineHeight: '1.2' }}>
               {data.careerSection.heading1} <span style={{ color: primary }}>{data.careerSection.headingHighlight}</span> {data.careerSection.heading2}
@@ -199,13 +371,18 @@ export default function MasterclassPage({ data }) {
             <p style={{ color: '#666', fontSize: '17px', maxWidth: '650px', margin: '0 auto', lineHeight: '1.7' }}>{data.careerSection.sub}</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
-            {data.careerSection.stats.map((s, i) => (
-              <div key={i} style={{ background: '#f8faf7', border: '1px solid #e8ede2', borderRadius: '16px', padding: '32px 24px', textAlign: 'center' }}>
-                <div style={{ fontSize: '36px', marginBottom: '12px' }}>{s.icon}</div>
-                <div style={{ fontFamily: 'var(--font-playfair)', fontSize: '32px', color: primary, fontWeight: '800', marginBottom: '8px', lineHeight: '1.1' }}>{s.value}</div>
-                <div style={{ color: '#666', fontSize: '14px', fontWeight: '500' }}>{s.label}</div>
-              </div>
-            ))}
+            {data.careerSection.stats.map((s, i) => {
+              const StatIcon = iconMap[s.icon] || MoneyIcon
+              return (
+                <div key={i} style={{ background: '#f8faf7', border: '1px solid #e8ede2', borderRadius: '16px', padding: '32px 24px', textAlign: 'center' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '14px', background: `rgba(${rgba},0.1)`, color: primary, marginBottom: '14px' }}>
+                    <StatIcon size={28} />
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-playfair)', fontSize: '32px', color: primary, fontWeight: '800', marginBottom: '8px', lineHeight: '1.1' }}>{s.value}</div>
+                  <div style={{ color: '#666', fontSize: '14px', fontWeight: '500' }}>{s.label}</div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -214,8 +391,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#f8faf7', padding: '80px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              {data.learningsSection.badge}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <TargetIcon size={14} /> {data.learningsSection.badge}
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 44px)', color: '#1C2213', fontWeight: '700', marginBottom: '14px', lineHeight: '1.2' }}>
               {data.learningsSection.heading1} <span style={{ color: primary }}>{data.learningsSection.headingHighlight}</span>{data.learningsSection.heading2}
@@ -242,8 +419,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#fff', padding: '80px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              {data.toolsSection.badge}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <ToolIcon size={14} /> {data.toolsSection.badge}
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 44px)', color: '#1C2213', fontWeight: '700', marginBottom: '14px', lineHeight: '1.2' }}>
               {data.toolsSection.heading1} <span style={{ color: primary }}>{data.toolsSection.headingHighlight}</span> {data.toolsSection.heading2}
@@ -262,7 +439,8 @@ export default function MasterclassPage({ data }) {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {tool.points.map((p, j) => (
                       <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <CheckIcon /> <span style={{ color: '#555', fontSize: '14px' }}>{p}</span>
+                        <span style={{ color: primary, display: 'inline-flex' }}><CheckIcon /></span>
+                        <span style={{ color: '#555', fontSize: '14px' }}>{p}</span>
                       </div>
                     ))}
                   </div>
@@ -277,8 +455,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#f8faf7', padding: '80px 20px' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              📋 Masterclass Agenda
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <ListIcon size={14} /> Masterclass Agenda
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(26px, 4vw, 40px)', color: '#1C2213', fontWeight: '700', marginBottom: '12px' }}>
               What Happens in 2 Hours?
@@ -309,8 +487,8 @@ export default function MasterclassPage({ data }) {
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div className="who-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
             <div>
-              <div style={{ display: 'inline-block', background: `rgba(${rgba},0.15)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>
-                👥 Who Should Attend
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.15)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
+                <UsersIcon size={14} /> Who Should Attend
               </div>
               <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(26px, 4vw, 40px)', color: '#fff', fontWeight: '700', marginBottom: '16px' }}>
                 This Masterclass is For You If...
@@ -321,8 +499,8 @@ export default function MasterclassPage({ data }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {data.whoShouldAttend.map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: `rgba(${rgba},0.2)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <CheckIcon color={primary} />
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: `rgba(${rgba},0.2)`, color: primary, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <CheckIcon />
                     </div>
                     <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px' }}>{item}</span>
                   </div>
@@ -333,13 +511,15 @@ export default function MasterclassPage({ data }) {
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               {[
-                { number: '500+', label: 'Students Trained', icon: '🎓' },
-                { number: '85%', label: 'Placement Rate', icon: '💼' },
-                { number: '4.9★', label: 'Google Rating', icon: '⭐' },
-                { number: '6+', label: 'Years Experience', icon: '👨‍🏫' },
+                { number: '500+', label: 'Students Trained', Icon: GraduationIcon },
+                { number: '85%', label: 'Placement Rate', Icon: BriefcaseIcon },
+                { number: '4.9', label: 'Google Rating', Icon: StarIcon },
+                { number: '6+', label: 'Years Experience', Icon: UserIcon },
               ].map((stat, i) => (
                 <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid rgba(${rgba},0.2)`, borderRadius: '14px', padding: '24px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '28px', marginBottom: '8px' }}>{stat.icon}</div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '44px', height: '44px', borderRadius: '12px', background: `rgba(${rgba},0.12)`, color: primary, marginBottom: '12px' }}>
+                    <stat.Icon size={22} />
+                  </div>
                   <div style={{ color: primary, fontSize: '28px', fontWeight: '800', fontFamily: 'var(--font-playfair)', marginBottom: '4px' }}>{stat.number}</div>
                   <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>{stat.label}</div>
                 </div>
@@ -353,8 +533,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#fff', padding: '80px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              ⭐ Real Stories
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <StarIcon size={14} /> Real Stories
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 44px)', color: '#1C2213', fontWeight: '700', marginBottom: '14px', lineHeight: '1.2' }}>
               From Masterclass to <span style={{ color: primary }}>Their Dream Job</span>
@@ -366,8 +546,8 @@ export default function MasterclassPage({ data }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             {data.testimonials.map((tst, i) => (
               <div key={i} style={{ background: '#f8faf7', border: '1px solid #e8ede2', borderRadius: '16px', padding: '28px' }}>
-                <div style={{ display: 'flex', gap: '4px', marginBottom: '14px' }}>
-                  {[1,2,3,4,5].map(s => <span key={s} style={{ color: '#FFB800', fontSize: '16px' }}>★</span>)}
+                <div style={{ display: 'flex', gap: '4px', marginBottom: '14px', color: '#FFB800' }}>
+                  {[1,2,3,4,5].map(s => <StarIcon key={s} size={16} filled={true} />)}
                 </div>
                 <p style={{ color: '#444', fontSize: '14px', lineHeight: '1.7', marginBottom: '20px', fontStyle: 'italic' }}>&ldquo;{tst.quote}&rdquo;</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', borderTop: '1px solid #e8ede2', paddingTop: '16px' }}>
@@ -387,8 +567,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#f8faf7', padding: '70px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '14px' }}>
-              💼 Top Recruiters
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '14px' }}>
+              <BriefcaseIcon size={14} /> Top Recruiters
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(24px, 3.5vw, 36px)', color: '#1C2213', fontWeight: '700', marginBottom: '10px' }}>
               Companies That Hire Our Students
@@ -410,8 +590,8 @@ export default function MasterclassPage({ data }) {
         <div style={{ position: 'absolute', inset: 0, backgroundImage: `linear-gradient(rgba(${rgba},0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(${rgba},0.04) 1px, transparent 1px)`, backgroundSize: '60px 60px', pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.15)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
-              🎁 Free Bonuses
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.15)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+              <GiftIcon size={14} /> Free Bonuses
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 44px)', color: '#fff', fontWeight: '700', marginBottom: '14px', lineHeight: '1.2' }}>
               Bonuses Worth <span style={{ color: primary }}>{data.bonusTotal}</span> — Yours FREE!
@@ -424,15 +604,17 @@ export default function MasterclassPage({ data }) {
             {data.bonuses.map((b, i) => (
               <div key={i} style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid rgba(${rgba},0.25)`, borderRadius: '14px', padding: '24px', position: 'relative' }}>
                 <div style={{ position: 'absolute', top: '16px', right: '16px', background: `rgba(${rgba},0.2)`, color: primary, fontSize: '12px', fontWeight: '800', padding: '4px 10px', borderRadius: '6px' }}>{b.value}</div>
-                <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎁</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '44px', height: '44px', borderRadius: '12px', background: `rgba(${rgba},0.15)`, color: primary, marginBottom: '14px' }}>
+                  <GiftIcon size={22} />
+                </div>
                 <h3 style={{ color: '#fff', fontSize: '16px', fontWeight: '700', marginBottom: '8px', paddingRight: '70px' }}>{b.title}</h3>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>{b.desc}</p>
               </div>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '44px' }}>
-            <a href="#register" style={{ display: 'inline-block', background: primary, color: '#fff', padding: '16px 36px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '16px' }}>
-              🎁 Claim All Bonuses — Register Free
+            <a href="#register" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: primary, color: '#fff', padding: '16px 36px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '16px' }}>
+              <GiftIcon size={18} /> Claim All Bonuses — Register Free
             </a>
           </div>
         </div>
@@ -442,8 +624,8 @@ export default function MasterclassPage({ data }) {
       <section style={{ background: '#fff', padding: '80px 20px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <div style={{ display: 'inline-block', background: `rgba(${rgba},0.1)`, color: primary, padding: '6px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '14px' }}>
-              ❓ Got Questions?
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: `rgba(${rgba},0.1)`, color: primary, padding: '7px 18px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '14px' }}>
+              <HelpIcon size={14} /> Got Questions?
             </div>
             <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(28px, 4vw, 42px)', color: '#1C2213', fontWeight: '700', marginBottom: '12px', lineHeight: '1.2' }}>
               Frequently Asked Questions
@@ -476,11 +658,11 @@ export default function MasterclassPage({ data }) {
             Only 15 Seats Available!
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '18px', marginBottom: '36px', lineHeight: '1.7' }}>
-            Don't miss this free opportunity to learn from a real industry expert. Register now and secure your seat!
+            Don&apos;t miss this free opportunity to learn from a real industry expert. Register now and secure your seat!
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#register" style={{ background: '#fff', color: primary, padding: '16px 36px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '16px' }}>
-              🎓 Register Free Now
+            <a href="#register" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#fff', color: primary, padding: '16px 36px', borderRadius: '8px', textDecoration: 'none', fontWeight: '800', fontSize: '16px' }}>
+              <GraduationIcon size={18} /> Register Free Now
             </a>
           </div>
         </div>
